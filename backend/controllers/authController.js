@@ -33,5 +33,6 @@ exports.login = async (req, res) => {
 };
 
 exports.logout = (req, res) => {
+    // Implement logout logic if needed
     res.send('User logged out');
 };
