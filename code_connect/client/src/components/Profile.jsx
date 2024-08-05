@@ -8,7 +8,8 @@ const Profile = () => {
   return (
 
 
-    <div>Profile
+    <div>
+      <h3>Welcome Test User!</h3>
       <div class="profile-container">
         {/* <!-- Cover Photo --> */}
         <div class="cover-photo">
