@@ -4,6 +4,10 @@ import Home from './components/Home'
 import Navbar from './components/Navbar'
 import Login from './components/Login'
 import Profile from './components/Profile'
+// import AddProfile from '/.components/AddProfile'
+import CreateAccount from './components/CreateAccount'
+import ManageProfile from './components/ManageProfile'
+import Registration from './components/Registrations'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,6 +19,10 @@ function App() {
         <Route path='/' element={<Home />}></Route>
         <Route path='/profile' element={<Profile />}></Route>
         <Route path='/login' element={<Login />}></Route>
+        {/* <Route path='/addprofile' element={<AddProfile />}></Route> */}
+        <Route path='/createaccount' element={<CreateAccount />}></Route>
+        <Route path='/manageprofile' element={<ManageProfile />}></Route>
+        <Route path='/registration' element={<Registration />}></Route>
       </Routes>
     </BrowserRouter>
   )
