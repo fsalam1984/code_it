@@ -22,7 +22,8 @@ app.use('/api/search', searchRoutes);
 // Add more routes as needed
 
 // Database connection
-const MONGO_URI = process.env.MONGO_URI;
+mongoose.connect('mongodb://127.0.0.1:27017/code-connect');
+
 mongoose
   .connect(MONGO_URI, {
     useNewUrlParser: true,
