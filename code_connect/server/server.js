@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Routes
-const authRoutes = require('./routes/authRoutes');
-const searchRoutes = require('./routes/searchRoutes');
+const authRoutes = require('../db/routes/authRoutes');
+const searchRoutes = require('../db/routes/searchRoutes');
 // Add more routes as needed
 
 app.use('/api/auth', authRoutes);
