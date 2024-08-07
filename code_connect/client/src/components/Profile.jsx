@@ -1,62 +1,82 @@
-import React from 'react'
-import '../css/Profile.css'
-import { Link } from 'react-router-dom'
-
-
+import React, { useState, useEffect } from 'react';
+import '../css/Profile.css';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Profile = () => {
+  const [friends, setFriends] = useState([]);
+  const [friendId, setFriendId] = useState(''); // For adding/deleting a friend
+
+  useEffect(() => {
+    fetchFriends();
+  }, []);
+
+  const fetchFriends = async () => {
+    try {
+      const response = await axios.get('/api/friends'); // Replace with your actual endpoint
+      setFriends(response.data);
+    } catch (error) {
+      console.error('Error fetching friends:', error);
+    }
+  };
+
+  const handleAddFriend = async () => {
+    try {
+      await axios.post('/api/friends', { friendId }); // Replace with your actual endpoint
+      fetchFriends();
+    } catch (error) {
+      console.error('Error adding friend:', error);
+    }
+  };
+
+  const handleDeleteFriend = async (id) => {
+    try {
+      await axios.delete(`/api/friends/${id}`); // Replace with your actual endpoint
+      fetchFriends();
+    } catch (error) {
+      console.error('Error deleting friend:', error);
+    }
+  };
+
   return (
-
-
     <div>
       <h3>Welcome Test User!</h3>
-      <div class="profile-container">
-        {/* <!-- Cover Photo --> */}
-        <div class="cover-photo">
-          {/* <img src="./Users/faisalsalam/bootcamp/project3/code_it/code_connect/client/public/Images/social media pictures1.jpg" alt="Cover Photo" ></img> */}
-          <img alt="Cover Photo" ></img>
-
+      <div className="profile-container">
+        <div className="cover-photo">
+          <img alt="Cover Photo" />
         </div>
-        {/* <!-- Profile Photo and Information --> */}
-        <div class="profile-info">
-          {/* <img src="profile-photo.jpg" alt="Profile Photo" class="profile-photo"></img> */}
-          <img alt="Profile Photo" class="profile-photo"></img>
+        <div className="profile-info">
+          <img alt="Profile Photo" className="profile-photo" />
           <h1>John Doe</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>
 
-
-      {/* <!-- Friends List --> */}
-      <div class="friends-list">
+      <div className="friends-list">
         <h2>Friends</h2>
         <ul>
-          <li>
-            <img src="/Images/friend1.jpg" alt="John Smith"/>
-            <span>John Smith</span>
-          </li>
-          <li>
-            <img src="/Images/friend2.jpg" alt="Michelle Brown"/>
-            <span>Michelle Brown</span>
-          </li>
-          <li>
-            <img src="/Images/friend3.jpg" alt="Jack Johnson"/>
-            <span>Jack Johnson</span>
-     
-          </li>
+          {friends.map((friend) => (
+            <li key={friend._id}>
+              <img src={friend.profilePicture} alt={friend.name} />
+              <span>{friend.name}</span>
+              <button onClick={() => handleDeleteFriend(friend._id)}>Delete</button>
+            </li>
+          ))}
         </ul>
       </div>
 
-
-      {/* <!-- Friend Actions --> */}
-      <div class="friend-actions">
-        <button class="view-friends">View Friends</button>
-        <button class="add-friend">Add Friend</button>
-        <button class="delete-friend">Delete Friend</button>
+      <div className="friend-actions">
+        <button onClick={fetchFriends}>View Friends</button>
+        <input
+          type="text"
+          value={friendId}
+          onChange={(e) => setFriendId(e.target.value)}
+          placeholder="Friend ID"
+        />
+        <button onClick={handleAddFriend}>Add Friend</button>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
