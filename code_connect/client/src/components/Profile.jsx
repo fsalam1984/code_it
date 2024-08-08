@@ -2,51 +2,54 @@ import React from 'react'
 import '../css/Profile.css'
 import { Link } from 'react-router-dom'
 
-
-const manageProfile = () => {
-  console.log("manage profile clicked")
-  return (
-
-
-    <div>
-
-    </div>
-  )
-};
-
 const viewFriends = () => {
   console.log("view friends clicked")
+  // Call backend API to get the list of friends
+  fetch('/api/friends')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
 }
+
 const addFriend = () => {
   console.log("add friends clicked")
-
+  // Call backend API to add a friend
+  fetch('/api/friends', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ name: 'New Friend' }) // Example friend name
+  })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
 }
+
 const deleteFriend = () => {
   console.log("delete friends clicked")
-
+  // Call backend API to delete a friend
+  fetch('/api/friends/123', { // Example friend ID
+    method: 'DELETE',
+  })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
 }
 
 const Profile = () => {
-
-
   return (
-
-
     <div>
       <h3>Welcome Test User!</h3>
       <div className="profile-container">
         {/* <!-- Cover Photo --> */}
         <div className="cover-photo">
-          {/* <img src="./Users/faisalsalam/bootcamp/project3/code_it/code_connect/client/public/Images/social media pictures1.jpg" alt="Cover Photo" ></img> */}
-          <img alt="Cover Photo" ></img>
-
+          <img alt="Cover Photo" />
         </div>
-
 
         {/* <!-- Profile Photo and Information --> */}
         <div className="profile-info">
-          {/* <img src="profile-photo.jpg" alt="Profile Photo" class="profile-photo"></img> */}
-          <img alt="Profile Photo" class="profile-photo"></img>
+          <img alt="Profile Photo" class="profile-photo" />
           <Link to="/manageprofile">
             <button class='manage profile'>Manage profile</button>
           </Link>
@@ -54,7 +57,6 @@ const Profile = () => {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>
-
 
       {/* <!-- Friends List --> */}
       <div className="friends-list">
@@ -71,25 +73,16 @@ const Profile = () => {
           <li>
             <img src="/Images/friend3.jpg" alt="Jack Johnson" />
             <span>Jack Johnson</span>
-
           </li>
         </ul>
       </div>
 
-
       {/* <!-- Friend Actions --> */}
       <div className="friend-actions">
-        <Link to='/friends' >
-        <button className="view-friends">View Friends</button>
-        </Link>
-        {/* <Link to='/friends' >
-        <button class="add-friend">Add Friend</button>
-        </Link>
-        <Link to='/friends' >
-        <button class="delete-friend">Delete Friend</button>
-        </Link> */}
+        <button className="view-friends" onClick={viewFriends}>View Friends</button>
+        <button className="add-friend" onClick={addFriend}>Add Friend</button>
+        <button className="delete-friend" onClick={deleteFriend}>Delete Friend</button>
       </div>
-
     </div>
   )
 }
