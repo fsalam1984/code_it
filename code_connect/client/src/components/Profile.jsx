@@ -1,90 +1,99 @@
-import React from 'react'
-import '../css/Profile.css'
-import { Link } from 'react-router-dom'
-
-const viewFriends = () => {
-  console.log("view friends clicked")
-  // Call backend API to get the list of friends
-  fetch('/api/friends')
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error:', error));
-}
-
-const addFriend = () => {
-  console.log("add friends clicked")
-  // Call backend API to add a friend
-  fetch('/api/friends', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ name: 'New Friend' }) // Example friend name
-  })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error:', error));
-}
-
-const deleteFriend = () => {
-  console.log("delete friends clicked")
-  // Call backend API to delete a friend
-  fetch('/api/friends/123', { // Example friend ID
-    method: 'DELETE',
-  })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error:', error));
-}
+import React, { useState, useEffect } from 'react';
+import '../css/Profile.css';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
+  const [profile, setProfile] = useState({
+    username: 'John Doe',
+    bio: 'Lorem ipsum dolor sit amet...',
+    friends: []
+  });
+
+  useEffect(() => {
+    // Fetch user profile data from backend
+    fetch('/api/user/profile')
+      .then(response => response.json())
+      .then(data => setProfile({
+        username: data.username,
+        bio: data.profile.bio,
+        friends: data.friends || []
+      }))
+      .catch(error => console.error('Error:', error));
+  }, []);
+
+  const viewFriends = () => {
+    console.log("View friends clicked");
+    // Fetch friends list
+    fetch('/api/friends')
+      .then(response => response.json())
+      .then(data => setProfile(prev => ({ ...prev, friends: data })))
+      .catch(error => console.error('Error:', error));
+  };
+
+  const addFriend = () => {
+    console.log("Add friend clicked");
+    // Example friend data
+    const newFriend = { name: 'New Friend' };
+
+    fetch('/api/friends', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newFriend)
+    })
+      .then(response => response.json())
+      .then(data => viewFriends()) // Refresh friends list
+      .catch(error => console.error('Error:', error));
+  };
+
+  const deleteFriend = (id) => {
+    console.log("Delete friend clicked", id);
+    fetch(`/api/friends/${id}`, { method: 'DELETE' })
+      .then(response => response.json())
+      .then(data => viewFriends()) // Refresh friends list
+      .catch(error => console.error('Error:', error));
+  };
+
   return (
     <div>
-      <h3>Welcome Test User!</h3>
+      <h3>Welcome {profile.username}!</h3>
       <div className="profile-container">
-        {/* <!-- Cover Photo --> */}
+        {/* Cover Photo */}
         <div className="cover-photo">
           <img alt="Cover Photo" />
         </div>
 
-        {/* <!-- Profile Photo and Information --> */}
+        {/* Profile Photo and Information */}
         <div className="profile-info">
-          <img alt="Profile Photo" class="profile-photo" />
+          <img alt="Profile Photo" className="profile-photo" />
           <Link to="/manageprofile">
-            <button class='manage profile'>Manage profile</button>
+            <button className="manage-profile">Manage Profile</button>
           </Link>
-          <h1>John Doe</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <h1>{profile.username}</h1>
+          <p>{profile.bio}</p>
         </div>
       </div>
 
-      {/* <!-- Friends List --> */}
+      {/* Friends List */}
       <div className="friends-list">
         <h2>Friends</h2>
         <ul>
-          <li>
-            <img src="/Images/friend1.jpg" alt="John Smith" />
-            <span>John Smith</span>
-          </li>
-          <li>
-            <img src="/Images/friend2.jpg" alt="Michelle Brown" />
-            <span>Michelle Brown</span>
-          </li>
-          <li>
-            <img src="/Images/friend3.jpg" alt="Jack Johnson" />
-            <span>Jack Johnson</span>
-          </li>
+          {profile.friends.map(friend => (
+            <li key={friend._id}>
+              <img src="/Images/friend1.jpg" alt={friend.name} />
+              <span>{friend.name}</span>
+              <button onClick={() => deleteFriend(friend._id)}>Delete</button>
+            </li>
+          ))}
         </ul>
       </div>
 
-      {/* <!-- Friend Actions --> */}
+      {/* Friend Actions */}
       <div className="friend-actions">
         <button className="view-friends" onClick={viewFriends}>View Friends</button>
         <button className="add-friend" onClick={addFriend}>Add Friend</button>
-        <button className="delete-friend" onClick={deleteFriend}>Delete Friend</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
