@@ -5,5 +5,6 @@ const Registrations = () => {
     <div>Registrations</div>
   )
 }
+// add form here for profile info
 
 export default Registrations
