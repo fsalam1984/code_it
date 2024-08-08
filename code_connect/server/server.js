@@ -18,7 +18,6 @@ const friendRoutes = require('../db/routes/friendRoutes');
 const profileRoutes = require('../db/routes/profileRoutes');
 const searchRoutes = require('../db/routes/searchRoutes');
 const testRoutes = require('../db/routes/testRoute');
-const friendsRoutes = require('./routes/friendsRoutes');
 
 
 // Add more routes as needed
