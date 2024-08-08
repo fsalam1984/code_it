@@ -48,7 +48,7 @@ const Profile = () => {
           {/* <img src="profile-photo.jpg" alt="Profile Photo" class="profile-photo"></img> */}
           <img alt="Profile Photo" class="profile-photo"></img>
           <Link to="/manageprofile">
-            <button class='manage profile'>Manage profile</button>
+            <button className='manage profile'>Manage profile</button>
           </Link>
           <h1>John Doe</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
