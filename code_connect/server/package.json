@@ -4,19 +4,18 @@
     "main": "index.js",
     "type": "commonjs",
     "scripts": {
-        "start-js": "react-scripts start",
-        "backend-start": "node server.js",
-        "start": "concurrently \"npm-run-all -p backend-start\"",
-        "build": "npm-run-all build-css && react-scripts build"
-    },
+        "start": "node server.js",
+        "seed": "node seeds/seed.js",
+        "watch": "nodemon server.js"
+      },
     "keywords": [],
-    "author": "fsalam1984",
+    "author": "",
     "license": "ISC",
     "description": "",
     "dependencies": {
+        "bcrypt": "^5.1.1",
         "bcryptjs": "^2.4.3",
         "concurrently": "^8.2.2",
-        "config": "^3.3.12",
         "cookie-parser": "^1.4.6",
         "cors": "^2.8.5",
         "dotenv": "^16.4.5",
@@ -27,6 +26,6 @@
         "nodemon": "^3.1.4"
     },
     "devDependencies": {
-        "npm-run-all": "^4.1.5"
+        "nodemon": "^2.0.6"
     }
 }

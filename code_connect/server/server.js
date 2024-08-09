@@ -13,11 +13,11 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Routes
-const authRoutes = require('../db/routes/authRoutes');
-const friendRoutes = require('../db/routes/friendRoutes');
-const profileRoutes = require('../db/routes/profileRoutes');
-const searchRoutes = require('../db/routes/searchRoutes');
-const testRoutes = require('../db/routes/testRoute');
+const authRoutes = require('./db/routes/authRoutes');
+const friendRoutes = require('./db/routes/friendRoutes');
+const profileRoutes = require('./db/routes/profileRoutes');
+const searchRoutes = require('./db/routes/searchRoutes');
+const testRoutes = require('./db/routes/testRoute');
 
 // Add more routes as needed
 app.use('/api/auth', authRoutes);
