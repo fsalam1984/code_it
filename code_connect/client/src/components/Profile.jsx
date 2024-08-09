@@ -90,7 +90,9 @@ const Profile = () => {
       {/* Friend Actions */}
       <div className="friend-actions">
         <button className="view-friends" onClick={viewFriends}>View Friends</button>
-        <button className="add-friend" onClick={addFriend}>Add Friend</button>
+        <Link to="/friends">
+                <button className="add-friend" onClick={addFriend}>Add Friend</button>
+                </Link>
       </div>
     </div>
   );
