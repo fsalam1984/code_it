@@ -19,11 +19,9 @@ const profileRoutes = require('./db/routes/profileRoutes');
 const searchRoutes = require('./db/routes/searchRoutes');
 const testRoutes = require('./db/routes/testRoute');
 
-
 // Add more routes as needed
-
 app.use('/api/auth', authRoutes);
-app.use('/api/friend', friendRoutes);
+app.use('/api/friends', friendRoutes); 
 app.use('/api/profile', profileRoutes);
 app.use('/api/search', searchRoutes);
 app.use('/api/test', testRoutes);
@@ -40,6 +38,3 @@ mongoose
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
-
-// last update thurs morning
