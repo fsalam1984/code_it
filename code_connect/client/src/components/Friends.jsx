@@ -1,8 +1,36 @@
 import React from 'react'
 import '../css/Profile.css'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
+
+
 
 const Friends = () => {
+
+  const [userId, setUserId] = useState('');
+  const [friendId, setFriendId] = useState('');
+
+  const addFriend = async () => {
+    try {
+      await axios.post('http://localhost:5173/add-friend', { userId, friendId });
+      alert('Friend added successfully');
+    } catch (error) {
+      console.error(error);
+      alert('Error adding friend');
+    }
+  };
+  
+  const deleteFriend = async () => {
+    try {
+      await axios.post('http://localhost:5173/delete-friend', { userId, friendId });
+      alert('Friend deleted successfully');
+    } catch (error) {
+      console.error(error);
+      alert('Error deleting friend');
+    }
+  };
+  
+  
     return (
         <div>Friends
 
@@ -27,12 +55,24 @@ const Friends = () => {
     </div>
 
     <div class="friend-actions">
+    <input
+        type="text"
+        placeholder="Your User ID"
+        value={userId}
+        onChange={(e) => setUserId(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Friend User ID"
+        value={friendId}
+        onChange={(e) => setFriendId(e.target.value)}
+      />
        
          <Link to='/friends' >
-        <button class="add-friend">Add Friend</button>
+        <button class="add-friend" onClick={addFriend}>Add Friend</button>
         </Link>
         <Link to='/friends' >
-        <button class="delete-friend">Delete Friend</button>
+        <button class="delete-friend" onClick={deleteFriend}>Delete Friend</button>
         </Link> 
       </div>
 

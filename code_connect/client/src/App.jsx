@@ -10,6 +10,8 @@ import CreateAccount from './components/CreateAccount'
 import ManageProfile from './components/ManageProfile'
 import Registration from './components/Registrations'
 import Friends from './components/Friends'
+import FriendActions from './components/FriendActions'
+import Friendscopy from './components/Friendscopy'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,7 +26,7 @@ function App() {
         <Route path='/createaccount' element={<CreateAccount />}></Route>
         <Route path='/manageprofile' element={<ManageProfile />}></Route>
         <Route path='/registration' element={<Registration />}></Route>
-        <Route path='/friends' element={<Friends />}></Route>
+        <Route path='/friends' element={<Friendscopy />}></Route>
         <Route path='/create-account' element={<CreateAccount />}></Route>
 
       </Routes>
