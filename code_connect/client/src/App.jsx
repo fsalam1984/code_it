@@ -12,14 +12,14 @@ import Registration from './components/Registrations'
 import Friends from './components/Friends'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState('no user searched')
 
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar setCount={setCount} count={count} />
       <Routes>
         <Route path='/' element={<Home />}></Route>
-        <Route path='/profile' element={<Profile />}></Route>
+        <Route path='/profile' element={<Profile count={count} />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/addprofile' element={<AddProfile />}></Route>
         <Route path='/createaccount' element={<CreateAccount />}></Route>

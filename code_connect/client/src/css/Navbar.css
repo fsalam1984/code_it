@@ -1,4 +1,5 @@
 /* Navbar.css */
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
 
 * {
     margin: 0;
@@ -15,7 +16,8 @@ background-color: rgb(57, 57, 170);
 color: #fff;
 padding-inline: 45px;
 border-bottom: 1px solid rgb(148, 148, 181);
-
+border-radius: 15px 50px 30px 5px;
+background-image: linear-gradient(blue, green);
 
 }
 
@@ -24,7 +26,7 @@ border-bottom: 1px solid rgb(148, 148, 181);
     margin-right: 20px;
     text-decoration: none;
     color: white;
-
+    font-family: 'Audiowide', sans-serif;
 }
 .navbar-left{
 
@@ -36,6 +38,7 @@ border-bottom: 1px solid rgb(148, 148, 181);
     display: flex;
     align-items: center;
     margin-left: 20px;
+    
 }
 
 .navbar-link:hover{
@@ -43,4 +46,5 @@ border-bottom: 1px solid rgb(148, 148, 181);
 }
 .navbar-link{
     color: white
+    
 }

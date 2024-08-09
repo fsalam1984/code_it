@@ -26,7 +26,7 @@ const deleteFriend = () => {
 
 }
 
-const Profile = () => {
+const Profile = ({count}) => {
 
 
   return (
