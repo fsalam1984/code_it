@@ -12,13 +12,21 @@ const bcrypt = require('bcryptjs');
 const users = [
     
   {
+    username: 'test',
     name: 'John Doe',
     email: 'john@example.com',
     password: 'password123',
   },
   {
+    username: 'test2',
     name: 'Jane Smith',
     email: 'jane@example.com',
+    password: 'password123',
+  },
+  {
+    username: 'test3',
+    name: 'Jim Smiths',
+    email: 'jims@example.com',
     password: 'password123',
   },
 ];
@@ -84,26 +92,59 @@ const friends = [
 // seedData();
 
 // MONGO_URI = process.env.MONGO_URI
-MONGO_URI='mongodb://localhost:5000/code-connect'
+MONGO_URI='mongodb://localhost:27017/code-connect'
 // Connect to MongoDB
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
+mongoose.connect(MONGO_URI)
+  .then(async () => {
     console.log('MongoDB connected');
     // Clear existing data
-    return Friend.deleteMany({}) , 
-    User.deleteMany({}), 
-    Profile.deleteMany({})// Clear the Profile collection
+    await Friend.deleteMany({})
+    await User.deleteMany({})
+    await Profile.deleteMany({})// Clear the Profile collection
   
   })
-  .then(() => {
+  .then(async () => {
     // Insert seed data
-    return Friend.insertMany(friends);
+    await Friend.insertMany(friends)
+    await User.insertMany(users)
+    await Profile.insertMany(profiles)
+
   })
-  .then(() => {
+  .then(async () => {
     console.log('Seed data inserted');
     mongoose.disconnect();
   })
   .catch(err => {
     console.error('Error:', err);
-    mongoose.disconnect();
+    // mongoose.disconnect();
   });
+
+
+  // const seedUser = async () => {
+  //   try {
+  //     // Check if user already exists
+  //     let user = await User.findOne({ username: 'testuser' });
+  //     if (user) {
+  //       console.log('User already exists');
+  //       return;
+  //     }
+  
+  //     // Create a new user
+  //     const salt = await bcrypt.genSalt(10);
+  //     const hashedPassword = await bcrypt.hash('testpassword', salt);
+  
+  //     user = new User({
+  //       username: 'testuser',
+  //       password: hashedPassword,
+  //     });
+  
+  //     await user.save();
+  //     console.log('User created successfully');
+  //   } catch (error) {
+  //     console.log('Error seeding user:', error);
+  //   } finally {
+  //     mongoose.connection.close();
+  //   }
+  // };
+  
+  // seedUser();

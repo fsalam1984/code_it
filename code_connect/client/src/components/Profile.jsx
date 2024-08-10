@@ -18,7 +18,7 @@ const Profile = () => {
         bio: data.profile.bio,
         friends: data.friends || []
       }))
-      .catch(error => console.error('Error:', error));
+      .catch(error => console.log('Error:', error));
   }, []);
 
   const viewFriends = () => {
@@ -27,7 +27,7 @@ const Profile = () => {
     fetch('/api/friends')
       .then(response => response.json())
       .then(data => setProfile(prev => ({ ...prev, friends: data })))
-      .catch(error => console.error('Error:', error));
+      .catch(error => console.log('Error:', error));
   };
 
   const addFriend = () => {
@@ -42,7 +42,7 @@ const Profile = () => {
     })
       .then(response => response.json())
       .then(data => viewFriends()) // Refresh friends list
-      .catch(error => console.error('Error:', error));
+      .catch(error => console.log('Error:', error));
   };
 
   const deleteFriend = (id) => {
@@ -50,7 +50,7 @@ const Profile = () => {
     fetch(`/api/friends/${id}`, { method: 'DELETE' })
       .then(response => response.json())
       .then(data => viewFriends()) // Refresh friends list
-      .catch(error => console.error('Error:', error));
+      .catch(error => console.log('Error:', error));
   };
 
   return (

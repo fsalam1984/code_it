@@ -52,14 +52,20 @@ function Friends() {
       <li>
         <img src="/Images/friend1.jpg" alt="John Smith" />
         <span>John Smith</span>
+        <button onClick={() => deleteFriend(friend._id)}>Delete</button>
+
       </li>
       <li>
         <img src="/Images/friend2.jpg" alt="Michelle Brown" />
         <span>Michelle Brown</span>
+        <button onClick={() => deleteFriend(friend._id)}>Delete</button>
+
       </li>
       <li>
         <img src="/Images/friend3.jpg" alt="Jack Johnson" />
         <span>Jack Johnson</span>
+        <button onClick={() => deleteFriend(friend._id)}>Delete</button>
+
 
       </li>
     </ul>
