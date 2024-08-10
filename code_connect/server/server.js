@@ -1,43 +1,45 @@
-require('dotenv').config(); // keep this at the top
-const db = require('./db/config/db');
-
 const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+const { ApolloServer } = require('@apollo/server');
+const { expressMiddleware } = require('@apollo/server/express4');
+const path = require('path');
+const { authMiddleware } = require('./utils/auth');
 
+const { typeDefs, resolvers } = require('./schemas');
+const db = require('./config/connection');
+
+const PORT = process.env.PORT || 3001;
 const app = express();
-const PORT = process.env.PORT || 5000;
-
-// Middleware
-app.use(bodyParser.json());
-app.use(cors());
-
-// Routes
-const authRoutes = require('./db/routes/authRoutes');
-const friendRoutes = require('./db/routes/friendRoutes');
-const profileRoutes = require('./db/routes/profileRoutes');
-const searchRoutes = require('./db/routes/searchRoutes');
-// const testRoutes = require('./db/routes/testRoute');
-
-// Add more routes as needed
-app.use('/api/auth', authRoutes);
-app.use('/api/friends', friendRoutes); 
-app.use('/api/profile', profileRoutes);
-app.use('/api/search', searchRoutes);
-// app.use('/api/test', testRoutes);
-
-// // Database connection
-// mongoose
-//   .connect(process.env.MONGO_URI, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then(() => console.log('MongoDB connected...'))
-//   .catch((err) => console.log(err));
-
-db.once('open', () => {
-  app.listen(PORT, () => {
-    console.log(`API server running on port ${PORT}!`);
-  });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
 });
+
+// Create a new instance of an Apollo server with the GraphQL schema
+const startApolloServer = async () => {
+  await server.start();
+
+  app.use(express.urlencoded({ extended: false }));
+  app.use(express.json());
+
+  app.use('/graphql', expressMiddleware(server, {
+    context: authMiddleware
+  }));
+
+  if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/dist')));
+
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+    });
+  }
+
+  db.once('open', () => {
+    app.listen(PORT, () => {
+      console.log(`API server running on port ${PORT}!`);
+      console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
+    });
+  });
+};
+
+// Call the async function to start the server
+  startApolloServer();

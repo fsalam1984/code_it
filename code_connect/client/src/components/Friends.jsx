@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react';
 import '../css/Profile.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
-
+import { useQuery } from '@apollo/client';
+import { QUERY_ALL_USERS } from '../utils/queries';
 
 
 const Friends = () => {
 
-  const [userId, setUserId] = useState('');
-  const [friendId, setFriendId] = useState('');
+  // const [userId, setUserId] = useState('');
+  // const [friendId, setFriendId] = useState('');
+  const {loading, error, data} = useQuery(QUERY_ALL_USERS)
+
+  const profile = data?.users || {}
 
   const addFriend = async () => {
     try {
@@ -32,7 +36,7 @@ const Friends = () => {
   
   
     return (
-        <div>Friends
+        <div>{profile.username} Friends
 
 
       <div class="friends-list">
