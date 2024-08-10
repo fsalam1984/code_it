@@ -1,25 +1,15 @@
 import { useState } from "react"
+import { useQuery } from "@apollo/client"
+import { QUERY_ALL_USERS_TEST } from "../utils/queries"
+
 
 export default function SearchBar({setCount, count}) {
 
     const [keyword, setkeyword]= useState('')
-    const usersData = [
-        {
-            name:'skittles'
-        },
-        {
-            name:'bear'
-        },
-        {
-            name:'hersheys'
-        },
-        {
-            name:'popcorn'
-        },
-        {
-            name:'acid'
-        }
-    ]
+    const {data, loading} = useQuery(QUERY_ALL_USERS_TEST)
+
+    const usersData = data?.users || []
+//    console.log(usersData);
 
     // take the value the user types in.
 
@@ -28,8 +18,9 @@ export default function SearchBar({setCount, count}) {
 
     function handleUserSearch(){
         
-        const searchedItem =  usersData.filter((item)=> item.name === keyword)
-        setCount(searchedItem)
+        const searchedItem =  usersData.filter((item)=> item.username === keyword)
+        setCount(searchedItem[0])
+        location.assign(`/results/${searchedItem[0]._id}`)
     }
 
     return (
