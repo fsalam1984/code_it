@@ -1,10 +1,42 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import '../css/Profile.css'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
+import { useQuery } from '@apollo/client';
+import { QUERY_ALL_USERS } from '../utils/queries';
+
 
 const Friends = () => {
+
+  // const [userId, setUserId] = useState('');
+  // const [friendId, setFriendId] = useState('');
+  const {loading, error, data} = useQuery(QUERY_ALL_USERS)
+
+  const profile = data?.users || {}
+
+  const addFriend = async () => {
+    try {
+      await axios.post('http://localhost:3009/add-friend', { userId, friendId });
+      alert('Friend added successfully');
+    } catch (error) {
+      console.error(error);
+      alert('Error adding friend');
+    }
+  };
+  
+  const deleteFriend = async () => {
+    try {
+      await axios.post('http://localhost:3009/delete-friend', { userId, friendId });
+      alert('Friend deleted successfully');
+    } catch (error) {
+      console.error(error);
+      alert('Error deleting friend');
+    }
+  };
+  
+  
     return (
-        <div>Friends
+        <div>{profile.username} Friends
 
 
       <div class="friends-list">
@@ -27,13 +59,25 @@ const Friends = () => {
     </div>
 
     <div class="friend-actions">
+    {/* <input
+        type="text"
+        placeholder="Your User ID"
+        value={userId}
+        onChange={(e) => setUserId(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Friend User ID"
+        value={friendId}
+        onChange={(e) => setFriendId(e.target.value)}
+      /> */}
        
-         <Link to='/friends' >
-        <button class="add-friend">Add Friend</button>
+         <Link to='/potential-friends' >
+        <button class="add-friend" >Add Friend</button>
         </Link>
-        <Link to='/friends' >
-        <button class="delete-friend">Delete Friend</button>
-        </Link> 
+        {/* <Link to='/friends' >
+        <button class="delete-friend" onClick={deleteFriend}>Delete Friend</button>
+        </Link>  */}
       </div>
 
 

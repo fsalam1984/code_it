@@ -1,25 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Profile.css';
 import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../utils/queries';
 
 const Profile = () => {
-  const [profile, setProfile] = useState({
-    username: 'John Doe',
-    bio: 'Lorem ipsum dolor sit amet...',
-    friends: []
-  });
+  // const [profile, setProfile] = useState({
+  //   username: 'John Doe',
+  //   bio: 'Lorem ipsum dolor sit amet...',
+  //   friends: []
+  // });
 
-  useEffect(() => {
-    // Fetch user profile data from backend
-    fetch('/api/user/profile')
-      .then(response => response.json())
-      .then(data => setProfile({
-        username: data.username,
-        bio: data.profile.bio,
-        friends: data.friends || []
-      }))
-      .catch(error => console.error('Error:', error));
-  }, []);
+  const {loading, error, data} = useQuery(QUERY_ME)
+
+  const profile = data?.me || {}
+
+  // useEffect(() => {
+  //   // Fetch user profile data from backend
+  //   fetch('/api/user/profile')
+  //     .then(response => response.json())
+  //     .then(data => setProfile({
+  //       username: data.username,
+  //       bio: data.profile.bio,
+  //       friends: data.friends || []
+  //     }))
+  //     .catch(error => console.log('Error:', error));
+  // }, []);
 
   const viewFriends = () => {
     console.log("View friends clicked");
@@ -27,7 +33,7 @@ const Profile = () => {
     fetch('/api/friends')
       .then(response => response.json())
       .then(data => setProfile(prev => ({ ...prev, friends: data })))
-      .catch(error => console.error('Error:', error));
+      .catch(error => console.log('Error:', error));
   };
 
   const addFriend = () => {
@@ -42,7 +48,7 @@ const Profile = () => {
     })
       .then(response => response.json())
       .then(data => viewFriends()) // Refresh friends list
-      .catch(error => console.error('Error:', error));
+      .catch(error => console.log('Error:', error));
   };
 
   const deleteFriend = (id) => {
@@ -50,8 +56,16 @@ const Profile = () => {
     fetch(`/api/friends/${id}`, { method: 'DELETE' })
       .then(response => response.json())
       .then(data => viewFriends()) // Refresh friends list
-      .catch(error => console.error('Error:', error));
+      .catch(error => console.log('Error:', error));
   };
+
+  if(loading) {
+    return(
+      <>
+      <>Still loading</>
+      </>
+    )
+  }
 
   return (
     <div>
@@ -69,7 +83,13 @@ const Profile = () => {
             <button className="manage-profile">Manage Profile</button>
           </Link>
           <h1>{profile.username}</h1>
-          <p>{profile.bio}</p>
+          <p>{profile.profile.bio}</p>
+          <p>{profile.profile.companies}</p>
+          <p>{profile.profile.job_title}</p>
+          <p>{profile.profile.education}</p>
+          <p>{profile.profile.niche}</p>
+          <p>{profile.profile.unique_characteristic}</p>
+
         </div>
       </div>
 
@@ -89,9 +109,9 @@ const Profile = () => {
 
       {/* Friend Actions */}
       <div className="friend-actions">
-        <button className="view-friends" onClick={viewFriends}>View Friends</button>
+        {/* <button className="view-friends" onClick={viewFriends}>View Friends</button> */}
         <Link to="/friends">
-                <button className="add-friend" onClick={addFriend}>Add Friend</button>
+                <button className="add-friend" onClick={viewFriends}>View Friends</button>
                 </Link>
       </div>
     </div>

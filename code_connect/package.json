@@ -7,7 +7,7 @@
         "start": "node server/server.js --ignore client",
         "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
         "install": "cd server && npm i && cd ../client && npm i",
-        "seed": "cd server && npm run seed",
+        "seed": "cd server/seeders && node seed.js",
         "build": "cd client && npm run build"
     },
     "keywords": [],
@@ -16,5 +16,8 @@
     "description": "",
     "devDependencies": {
         "concurrently": "^5.3.0"
+    },
+    "dependencies": {
+        "cors": "^2.8.5"
     }
 }
