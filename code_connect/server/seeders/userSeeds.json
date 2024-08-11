@@ -18,8 +18,25 @@
       "niche": "Frontend",
       "unique_characteristic": "Unique",
       "images": [
-        "/Images/musk3.jpg"
+        "/Images/musk3.jpg",
+        "../code_connect/client/public/Images/friend1.jpg"
       ]
+    }
+  },
+  {
+    "username": "John Smith",
+    "email": "johnsmith@example.com",
+    "password": "password123",
+    "profile": {
+      "bio": "Industry pro with multiple years of experience as an Automation Architect.",
+      "years_of_experience": 12,
+      "companies": ["Apple", "Google"],
+      "job_title": "Quality Architect",
+      "education": "PHD",
+      "languages": ["English"],
+      "niche": "Java",
+      "unique_characteristic": "Leading a team of 100 QEs.",
+      "images": ["code_connect/client/public/Images/friend1.jpg"]
     }
   }
 ]

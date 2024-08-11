@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../css/Profile.css';
+// import '../index.html'
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
@@ -40,6 +41,8 @@ const Profile = () => {
 
   if (loading) return <div className="text-center mt-5">Still loading...</div>;
   if (error) return <div className="text-center mt-5">Error loading profile.</div>;
+
+
 
   return (
     <div className="container-fluid mt-4">
@@ -85,6 +88,7 @@ const Profile = () => {
         </div>
       </div>
     </div>
+    
   );
 };
 

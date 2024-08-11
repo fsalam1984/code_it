@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import '../css/Profile.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
-import { useMutation, useQuery } from '@apollo/client';
-import { QUERY_ALL_USERS, QUERY_ME } from '../utils/queries';
+import { useQuery } from '@apollo/client';
+import { QUERY_ALL_USERS } from '../utils/queries';
 
 
 const Friends = () => {
 
   // const [userId, setUserId] = useState('');
   // const [friendId, setFriendId] = useState('');
-  const {loading, error, data} = useQuery(QUERY_ME)
+  const {loading, error, data} = useQuery(QUERY_ALL_USERS)
 
-  const friends = data?.me || {}
+  const friends = data?.users || {}
 
   // const addFriend = async () => {
   //   try {
@@ -34,15 +34,7 @@ const Friends = () => {
   //   }
   // };
   
-//   const ADD_FRIEND = gql`
-//   mutation AddFriend($name: String!) {
-//     addFriend(name: $name) {
-//       id
-//       name
-//     }
-//   }
-// `;
-
+  
     return (
         <div> 
 
@@ -52,7 +44,7 @@ const Friends = () => {
       <ul>
         <li>
           <img src="/Images/friend1.jpg" alt="John Smith" />
-          <span>{friends.username}</span>
+          <span>John Smith</span>
         <button className="delete-friend">Delete Friend</button>
         </li>
         <li>
