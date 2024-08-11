@@ -50,35 +50,37 @@
 
 //Updated code 
 
-
 const { AuthenticationError } = require('apollo-server-express'); // Use this for error handling in Apollo Server
 const jwt = require('jsonwebtoken');
 
-const secret = 'mysecretssshhhhhhh'; // Ideally, this should be an environment variable
+const secret = process.env.JWT_SECRET || 'mysecretssshhhhhhh'; // Use environment variable for secret
 const expiration = '2h';
 
 module.exports = {
   AuthenticationError: new AuthenticationError('Could not authenticate user.'),
   
   authMiddleware: function ({ req }) {
-    // Extract token from headers
     let token = req.headers.authorization || '';
 
+    // Ensure the token starts with 'Bearer '
     if (token.startsWith('Bearer ')) {
       token = token.slice(7).trim(); // Remove 'Bearer ' from the token string
+    } else if (req.headers.authorization) {
+      token = req.headers.authorization.split(' ').pop().trim();
     }
 
-    // If no token is found, return the request without user data
+    // If no token is found, return the request object
     if (!token) {
       return req;
     }
 
     try {
-      // Verify token and attach user data to request
+      // Verify the token and attach user data to request
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
     } catch (err) {
       console.log('Invalid token', err);
+      req.user = null; // Ensure `req.user` is null if the token is invalid
     }
 
     return req;

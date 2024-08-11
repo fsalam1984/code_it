@@ -1,10 +1,14 @@
-const { User, Thought } = require('../models');
+const { User } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    users: async () => {
-      return User.find().populate("friends")
+    users: async (parents, args, context) => {
+      if(context.user){
+        return User.find({ _id: {$ne: context.user._id}}).populate("friends")
+      }
+      throw new AuthenticationError('User not authenticated');
+
     },
     user: async (parent, { _id }) => {
       return User.findOne({ _id }).populate("friends")
@@ -66,7 +70,9 @@ const resolvers = {
       return { token, user };
     },
     addFriend: async (parent, { friendId }, context) => {
+      console.log(friendId)
       if (context.user) {
+   
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
@@ -96,6 +102,21 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
+
+
+    updateBio: async (parent ,{bioinfo}, context) =>{
+      if (context.user) {
+        return User.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+              profile: {bio: bioinfo}
+            },
+    
+          { new: true }
+        ).populate('friends');
+      }
+      throw AuthenticationError;
+    }
   },
 };
 

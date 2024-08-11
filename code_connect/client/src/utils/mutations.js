@@ -14,6 +14,7 @@ mutation login($email: String!, $password: String!) {
 `;
 
 export const ADD_FRIEND = gql`
+<<<<<<< HEAD
 mutation addFriend($friendId: ID!) {
   addFriend(friendId: $friendId) {
     _id
@@ -32,12 +33,19 @@ mutation addFriend($friendId: ID!) {
       niche
       unique_characteristic
       images
+=======
+  mutation addFriend($friendId: ID!) {
+    addFriend(friendId: $friendId) {
+      _id
+      email
+      username
+>>>>>>> 6efdf7e62d22f51d9d4af4635c19e4f47a59b996
     }
   }
-}
 `;
 
 export const REMOVE_FRIEND = gql`
+<<<<<<< HEAD
 mutation removeFriend($friendId: ID!) {
   removeFriend(friendId: $friendId) {
     _id
@@ -56,7 +64,24 @@ mutation removeFriend($friendId: ID!) {
       niche
       unique_characteristic
       images
+=======
+  mutation removeFriend($friendId: ID!) {
+    removeFriend(friendId: $friendId) {
+      _id
+      email
+      username
+>>>>>>> 6efdf7e62d22f51d9d4af4635c19e4f47a59b996
     }
   }
-}
 `;
+export const UPDATE_BIO = gql
+`mutation UpdateBio($bioinfo: String!) {
+  updateBio(bioinfo: $bioinfo) {
+    email
+    _id
+    profile {
+      bio
+    }
+  }
+}`
+;
