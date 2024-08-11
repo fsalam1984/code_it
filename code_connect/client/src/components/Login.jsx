@@ -32,6 +32,7 @@ const Login = () => {
 
             // Redirect to homepage or another protected route
             window.location.href = '/profile';
+            console.log("Login is successful");
         } catch (error) {
             console.log(error);
             // Show user-friendly error message

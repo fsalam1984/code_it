@@ -14,20 +14,31 @@ export const LOGIN_USER = gql`
 
 export const ADD_FRIEND = gql`
   mutation addFriend($friendId: ID!) {
-  addFriend(friendId: $friendId) {
-    _id
-    email
-    username
+    addFriend(friendId: $friendId) {
+      _id
+      email
+      username
+    }
   }
-}
 `;
 
 export const REMOVE_FRIEND = gql`
-  mutation Mutation($friendId: ID!) {
-  removeFriend(friendId: $friendId) {
-    _id
-    email
-    username
+  mutation removeFriend($friendId: ID!) {
+    removeFriend(friendId: $friendId) {
+      _id
+      email
+      username
+    }
   }
-}
 `;
+export const UPDATE_BIO = gql
+`mutation UpdateBio($bioinfo: String!) {
+  updateBio(bioinfo: $bioinfo) {
+    email
+    _id
+    profile {
+      bio
+    }
+  }
+}`
+;

@@ -17,12 +17,18 @@
       ],
       "niche": "Frontend",
       "unique_characteristic": "Unique",
+<<<<<<< HEAD
       "images": [
         "/Images/musk3.jpg",
         "../code_connect/client/public/Images/friend1.jpg"
       ]
+=======
+      "images": ["/Images/user1.jpg"]
+>>>>>>> 6efdf7e62d22f51d9d4af4635c19e4f47a59b996
     }
   },
+
+  
   {
     "username": "John Smith",
     "email": "johnsmith@example.com",
@@ -35,8 +41,64 @@
       "education": "PHD",
       "languages": ["English"],
       "niche": "Java",
+<<<<<<< HEAD
       "unique_characteristic": "Leading a team of 100 QEs.",
       "images": ["code_connect/client/public/Images/friend1.jpg"]
+=======
+      "unique_characteristic": "Leading team of 100 QE's.",
+      "images": ["/Images/user2.jpg"]
+    }
+  },
+   
+  {
+    "username": "Jack Smith",
+    "email": "jacksmith@example.com",
+    "password": "password123",
+    "profile": {
+      "bio": "Indsutry pro with multiple years of experience as an Autmation Architect.",
+      "years_of_experience": 12,
+      "companies": ["Apple", "Google"],
+      "job_title": "Quality Architect",
+      "education": "PHD",
+      "languages": ["English"],
+      "niche": "Java",
+      "unique_characteristic": "Leading team of 100 QE's.",
+      "images": ["/Images/user2.jpg"]
+    }
+  },
+   
+  {
+    "username": "Mike Brown",
+    "email": "mbrown@example.com",
+    "password": "password123",
+    "profile": {
+      "bio": "Indsutry pro with multiple years of experience as an Autmation Architect.",
+      "years_of_experience": 12,
+      "companies": ["Apple", "Google"],
+      "job_title": "Quality Architect",
+      "education": "PHD",
+      "languages": ["English"],
+      "niche": "Java",
+      "unique_characteristic": "Leading team of 100 QE's.",
+      "images": ["/Images/user2.jpg"]
+    }
+  },
+  {
+    "username": "Jill Stone",
+    "email": "jstone@example.com",
+    "password": "password123",
+    "profile": {
+      "bio": "Indsutry pro with multiple years of experience as an Autmation Architect.",
+      "years_of_experience": 12,
+      "companies": ["Apple", "Google"],
+      "job_title": "Quality Architect",
+      "education": "PHD",
+      "languages": ["English"],
+      "niche": "Java",
+      "unique_characteristic": "Leading team of 100 QE's.",
+      "images": ["/Images/user2.jpg"]
+>>>>>>> 6efdf7e62d22f51d9d4af4635c19e4f47a59b996
     }
   }
+
 ]

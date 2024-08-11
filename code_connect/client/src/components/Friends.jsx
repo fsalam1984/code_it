@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_ALL_USERS, QUERY_ME } from '../utils/queries';
+import { REMOVE_FRIEND } from '../utils/mutations';
 
 
 const Friends = () => {
@@ -11,37 +12,22 @@ const Friends = () => {
   // const [userId, setUserId] = useState('');
   // const [friendId, setFriendId] = useState('');
   const {loading, error, data} = useQuery(QUERY_ME)
-
-  const friends = data?.me || {}
-
-  // const addFriend = async () => {
-  //   try {
-  //     await axios.post('http://localhost:3009/add-friend', { userId, friendId });
-  //     alert('Friend added successfully');
-  //   } catch (error) {
-  //     console.error(error);
-  //     alert('Error adding friend');
-  //   }
-  // };
-  
-  // const deleteFriend = async () => {
-  //   try {
-  //     await axios.post('http://localhost:3009/delete-friend', { userId, friendId });
-  //     alert('Friend deleted successfully');
-  //   } catch (error) {
-  //     console.error(error);
-  //     alert('Error deleting friend');
-  //   }
-  // };
-  
-//   const ADD_FRIEND = gql`
-//   mutation AddFriend($name: String!) {
-//     addFriend(name: $name) {
-//       id
-//       name
-//     }
-//   }
-// `;
+  const [deleteFriend] = useMutation(REMOVE_FRIEND);
+  if (loading){
+    return  <div>Loading</div>
+  }
+  const friends = data?.me?.friends || {}
+  console.log(friends)
+       // Function to handle deleting a friend
+       const handleDeleteFriend = async (id) => {
+        try {
+          await deleteFriend({ variables: { friendId: id } });
+          alert('Friend Deleted.')
+          // Optionally, handle success feedback here
+        } catch (error) {
+          console.log("Error deleting friend:", error);
+        }
+      };
 
     return (
         <div> 
@@ -50,24 +36,22 @@ const Friends = () => {
       <div className="friends-list">
       <h2>Friends</h2>
       <ul>
-        <li>
-          <img src="/Images/friend1.jpg" alt="John Smith" />
-          <span>{friends.username}</span>
-        <button className="delete-friend">Delete Friend</button>
-        </li>
-        <li>
-          <img src="/Images/friend2.jpg" alt="Michelle Brown" />
-          <span>Michelle Brown</span>
-          <button className="delete-friend">Delete Friend</button>
 
-        </li>
-        <li>
-          <img src="/Images/friend3.jpg" alt="Jack Johnson" />
-          <span>Jack Johnson</span>
-          <button className="delete-friend">Delete Friend</button>
+        <ul>
+        {friends.map(friend => (  
+          <li key={friend.id}>
+            <img src={friend.profile.images[0]} alt={friend.name} />
+            <span>{friend.username}</span>
+            <span>{friend.profile.bio}</span>
+            <span>{friend.profile.education}</span>
+            {/* <button onClick={() => handleAddFriend(friend._id)}>Add Friend</button> */}
+            <button onClick={() => handleDeleteFriend(friend._id)}>Remove Friend</button>
+          </li>
+        ))}
+      </ul>
 
 
-        </li>
+
       </ul>
     </div>
 

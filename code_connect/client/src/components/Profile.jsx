@@ -87,6 +87,28 @@ const Profile = () => {
           <p>{profile.profile.unique_characteristic}</p>
         </div>
       </div>
+
+      {/* Friends List */}
+      <div className="friends-list">
+        <h2>Friends</h2>
+        <ul>
+          {profile.friends.map(friend => (
+            <li key={friend._id}>
+              <img src={friend.profile.images[0]} alt={friend.name} />
+              <span>{friend.username}</span>
+              {/* <button onClick={() => deleteFriend(friend._id)}>Delete</button> */}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Friend Actions */}
+      <div className="friend-actions">
+        {/* <button className="view-friends" onClick={viewFriends}>View Friends</button> */}
+        <Link to="/friends">
+          <button className="add-friend">View Friends</button>
+        </Link>
+      </div>
     </div>
     
   );
