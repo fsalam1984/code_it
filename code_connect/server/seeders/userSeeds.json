@@ -4,12 +4,12 @@
     "email": "john@example.com",
     "password": "password123",
     "profile": {
-      "bio": "Indsutry pro with multiple years of experience as an DevOPS Manager.",
+      "bio": "Industry pro with multiple years of experience as an DevOPS Manager.",
       "years_of_experience": 5,
-      "companies": ["ABC Company", ", Walt Disney "],
-      "job_title": "DevOPS Manager",
-      "education": "PHD",
-      "languages": ["English, French, Arabic"],
+      "companies": ["ABC Company", ", Walt Disney ."],
+      "job_title": "DevOPS Manager.",
+      "education": "PHD.",
+      "languages": ["English, French, Arabic."],
       "niche": "Cloud technologies",
       "unique_characteristic": "Able to work on CICD",
       "images": ["/Images/friend1.jpg"]
@@ -25,11 +25,11 @@
     "profile": {
       "bio": "Industry e with multiple years of experience as an Autmation Architect.",
       "years_of_experience": 12,
-      "companies": ["Apple", ", Google"],
-      "job_title": "Quality Architect",
-      "education": "PHD",
-      "languages": ["English"],
-      "niche": "Java",
+      "companies": ["Apple", ", Google."],
+      "job_title": "Quality Architect.",
+      "education": "PHD.",
+      "languages": ["English, Bengali, Arabic"],
+      "niche": "Java, Javascript, Node, REACT, MonGOOSE.",
       "unique_characteristic": "Leading team of 100 QE's.",
       "images": ["/Images/friend3.jpg"]
     }
@@ -42,11 +42,11 @@
     "profile": {
       "bio": "Industry leader with multiple years of experience as an Developer Lead.",
       "years_of_experience": 12,
-      "companies": ["Facebook", ", Uber"],
-      "job_title": "Develoop Lead",
-      "education": "Masters in CS",
+      "companies": ["Facebook", ", Uber."],
+      "job_title": "Develoop Lead.",
+      "education": "Masters in CS.",
       "languages": ["English, Spanish"],
-      "niche": "Python",
+      "niche": "Python.",
       "unique_characteristic": "Leading team of 10 Dev's.",
       "images": ["/Images/user1.jpg"]
     }
@@ -59,11 +59,11 @@
     "profile": {
       "bio": "Industry pro with multiple years of experience as an Backend Architect.",
       "years_of_experience": 12,
-      "companies": ["Apple", "Google"],
-      "job_title": "Backend Architect",
-      "education": "Masters in CS",
+      "companies": ["Apple", "Google", "Netflix", "Amazon."],
+      "job_title": "Backend Architect.",
+      "education": "Masters in CS.",
       "languages": ["English"],
-      "niche": "SQL, MONGO, REACT, NODE",
+      "niche": "SQL, MONGO, REACT, NODE.",
       "unique_characteristic": "Building backend for Millions of users.",
       "images": ["/Images/user2.jpg"]
     }
@@ -75,10 +75,10 @@
     "profile": {
       "bio": "Indsutry pro with multiple years of experience as an Director Engineering.",
       "years_of_experience": 12,
-      "companies": ["WhatsApp", ", Lyft"],
-      "job_title": "Director Engineering III",
-      "education": "PHD",
-      "languages": ["English, Spanish, German, French, Italian"],
+      "companies": ["WhatsApp", ", Lyft."],
+      "job_title": "Director Engineering III.",
+      "education": "PHD.",
+      "languages": ["English, Spanish, German, French, Italian."],
       "niche": "Java, API",
       "unique_characteristic": "Building softwares for top 20 Forbes companies, leading team of many developers.",
       "images": ["/Images/user3.jpg"]

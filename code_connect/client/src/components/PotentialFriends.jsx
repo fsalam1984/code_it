@@ -13,6 +13,7 @@ const PotentialFriends = () => {
     const [addFriend] = useMutation(ADD_FRIEND);
     const [deleteFriend] = useMutation(REMOVE_FRIEND);
     const {data, loading} = useQuery(QUERY_ALL_USERS)
+    
     console.log(data)
    
   if (loading){

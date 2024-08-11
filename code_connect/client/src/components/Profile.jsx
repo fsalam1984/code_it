@@ -39,7 +39,7 @@ const Profile = () => {
 
         {/* Profile Photo and Information */}
         <div className="profile-info">
-          <img  alt="Profile Photo" className="profile-photo" />
+          <img  src={profile.images} alt="Profile Photo" className="profile-photo" />
           {/* <Link to="/manageprofile">
             <button className="manage-profile">Manage Profile</button>
           </Link> */}
