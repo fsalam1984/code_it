@@ -16,8 +16,5 @@
     "description": "",
     "devDependencies": {
         "concurrently": "^5.3.0"
-    },
-    "dependencies": {
-        "cors": "^2.8.5"
     }
 }

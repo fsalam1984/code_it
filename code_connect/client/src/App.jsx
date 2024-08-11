@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import {
   ApolloClient,
   InMemoryCache,
@@ -8,22 +6,8 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import Home from './components/Home'
-import Navbar from './components/Navbar'
-import Login from './components/Login'
-import Login2 from './components/Login'
-
-import Profile from './components/Profile'
-
-import AddProfile from './components/AddProfile'
-import CreateAccount from './components/CreateAccount'
-import ManageProfile from './components/ManageProfile'
-import Registration from './components/Registrations'
-import Friends from './components/Friends'
-// import FriendActions from './components/FriendActions'
-// import Friendscopy from './components/Friendscopy'
-import PotentialFriends from './components/PotentialFriends'
-import SearchResults from './components/SearchResults';
+import Navbar from './components/Navbar/Navbar'
+import { Outlet } from 'react-router-dom';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -50,26 +34,12 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [count, setCount] = useState('no user searched')
 
-  return (   
-  <ApolloProvider client={client}>
-    <BrowserRouter>
-      <Navbar setCount={setCount} count={count} />
-      <Routes>
-        <Route path='/' element={<Home />}></Route>
-        <Route path='/profile' element={<Profile count={count} />}></Route>
-        <Route path='/login' element={<Login />}></Route>
-        <Route path='/addprofile' element={<AddProfile />}></Route>
-        <Route path='/createaccount' element={<CreateAccount />}></Route>
-        <Route path='/manageprofile' element={<ManageProfile />}></Route>
-        <Route path='/registration' element={<Registration />}></Route>
-        <Route path='/friends' element={<Friends />}></Route>
-        <Route path='/potential-friends' element={<PotentialFriends />}></Route>
-        <Route path="/results/:userId" element={<SearchResults />} />
 
-        </Routes>
-      </BrowserRouter>
+  return (
+    <ApolloProvider client={client}>
+      <Navbar />
+      <Outlet />
     </ApolloProvider>
   )
 }

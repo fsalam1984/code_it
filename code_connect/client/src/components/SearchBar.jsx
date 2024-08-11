@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client"
 import { QUERY_ALL_USERS_TEST } from "../utils/queries"
 
 
-export default function SearchBar({setCount, count}) {
+export default function SearchBar() {
 
     const [keyword, setkeyword]= useState('')
     const {data, loading} = useQuery(QUERY_ALL_USERS_TEST)
@@ -19,7 +19,7 @@ export default function SearchBar({setCount, count}) {
     function handleUserSearch(){
         
         const searchedItem =  usersData.filter((item)=> item.username === keyword)
-        setCount(searchedItem[0])
+    
         location.assign(`/results/${searchedItem[0]._id}`)
     }
 
