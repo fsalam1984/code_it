@@ -4,13 +4,10 @@ html, body {
     padding: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(180deg, #f7b05b, #cc5803);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .container-fluid {
-    padding-top: 0; /* Remove the top padding as we are centering the content */
+    padding-top: 120px;
 }
 
 .form-container {
@@ -20,5 +17,40 @@ html, body {
     width: 300px;
     margin: 0 auto;
     text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-45%);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f5e6c5;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #f7934c;
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+a {
+    color: #1f1300;
+    text-decoration: underline;
+    cursor: pointer;
 }

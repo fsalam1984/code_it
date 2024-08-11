@@ -7,7 +7,6 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Ensures vertical centering of items */
     padding: 12px 45px;
     background-color: #1F1300;
     color: #fff;
@@ -32,13 +31,12 @@
 .navbar-right {
     display: flex;
     align-items: center;
-    margin-left: auto; /* Pushes the right section to the far right */
+    margin-left: 20px;
 }
 
 .navbar-link {
     color: #ffc15e;
     margin-left: 20px;
-    text-decoration: none; /* Remove underline by default */
 }
 
 .navbar-link:hover {
