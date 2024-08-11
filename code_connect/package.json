@@ -1,0 +1,36 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "main": "index.js",
+    "type": "commonjs",
+    "scripts": {
+        "start": "node server/server.js --ignore client",
+        "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
+        "install": "cd server && npm i && cd ../client && npm i",
+        "seed": "cd server/seeders && node seed.js",
+        "build": "cd client && npm run build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "devDependencies": {
+        "concurrently": "^5.3.0"
+    },
+    "dependencies": {
+        "apollo-server-express": "^3.13.0",
+        "cors": "^2.8.5"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
-import SearchBar from '../SearchBar'
-import auth from '../../utils/auth'
+import SearchBar from '../components/SearchBar'
+import auth from '../utils/auth'
 
 const Navbar = () => {
 
