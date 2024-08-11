@@ -11,7 +11,7 @@
 display: flex;
 justify-content: space-between;
 padding: 12px;
-background-color: rgb(57, 57, 170);
+background-color: #1F1300;
 color: #fff;
 padding-inline: 45px;
 border-bottom: 1px solid rgb(148, 148, 181);
@@ -23,7 +23,7 @@ border-bottom: 1px solid rgb(148, 148, 181);
     font-size: 1.8rem;
     margin-right: 20px;
     text-decoration: none;
-    color: white;
+    color: #ffc15e;
 
 }
 .navbar-left{
@@ -42,5 +42,5 @@ border-bottom: 1px solid rgb(148, 148, 181);
     text-decoration: underline;
 }
 .navbar-link{
-    color: white
+    color: #ffc15e
 }

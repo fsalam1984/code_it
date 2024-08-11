@@ -6,13 +6,20 @@
     "profile": {
       "bio": "This is a sample bio",
       "years_of_experience": 5,
-      "companies": ["Company 1", "Company 2"],
+      "companies": [
+        "Company 1",
+        "Company 2"
+      ],
       "job_title": "Professional Title",
       "education": "Degree",
-      "languages": ["English"],
+      "languages": [
+        "English"
+      ],
       "niche": "Frontend",
       "unique_characteristic": "Unique",
-      "images": ["/Images/musk3.jpg"]
+      "images": [
+        "/Images/musk3.jpg"
+      ]
     }
   }
 ]
