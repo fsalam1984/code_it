@@ -37,6 +37,7 @@ const typeDefs = `
     login(email: String!, password: String!): Auth
     addFriend(friendId: ID!): User
     removeFriend(friendId: ID!): User
+    updateBio(bioinfo: String!): User
   }
 `;
 

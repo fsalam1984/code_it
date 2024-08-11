@@ -12,10 +12,12 @@
       "languages": ["English"],
       "niche": "Frontend",
       "unique_characteristic": "Unique",
-      "images": ["../code_connect/client/public/Images/friend1.jpg"]
+      "images": ["/Images/user1.jpg"]
     }
     
   },
+
+  
   {
     "username": "John Smith",
     "email": "johnsmith@example.com",
@@ -29,7 +31,58 @@
       "languages": ["English"],
       "niche": "Java",
       "unique_characteristic": "Leading team of 100 QE's.",
-      "images": ["code_connect/client/public/Images/friend1.jpg"]
+      "images": ["/Images/user2.jpg"]
+    }
+  },
+   
+  {
+    "username": "Jack Smith",
+    "email": "jacksmith@example.com",
+    "password": "password123",
+    "profile": {
+      "bio": "Indsutry pro with multiple years of experience as an Autmation Architect.",
+      "years_of_experience": 12,
+      "companies": ["Apple", "Google"],
+      "job_title": "Quality Architect",
+      "education": "PHD",
+      "languages": ["English"],
+      "niche": "Java",
+      "unique_characteristic": "Leading team of 100 QE's.",
+      "images": ["/Images/user2.jpg"]
+    }
+  },
+   
+  {
+    "username": "Mike Brown",
+    "email": "mbrown@example.com",
+    "password": "password123",
+    "profile": {
+      "bio": "Indsutry pro with multiple years of experience as an Autmation Architect.",
+      "years_of_experience": 12,
+      "companies": ["Apple", "Google"],
+      "job_title": "Quality Architect",
+      "education": "PHD",
+      "languages": ["English"],
+      "niche": "Java",
+      "unique_characteristic": "Leading team of 100 QE's.",
+      "images": ["/Images/user2.jpg"]
+    }
+  },
+  {
+    "username": "Jill Stone",
+    "email": "jstone@example.com",
+    "password": "password123",
+    "profile": {
+      "bio": "Indsutry pro with multiple years of experience as an Autmation Architect.",
+      "years_of_experience": 12,
+      "companies": ["Apple", "Google"],
+      "job_title": "Quality Architect",
+      "education": "PHD",
+      "languages": ["English"],
+      "niche": "Java",
+      "unique_characteristic": "Leading team of 100 QE's.",
+      "images": ["/Images/user2.jpg"]
     }
   }
+
 ]

@@ -3,3 +3,6 @@ const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/code-connect');
 
 module.exports = mongoose.connection;
+
+console.log("connected to mongoose."
+)

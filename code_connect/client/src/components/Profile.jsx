@@ -60,9 +60,9 @@ const Profile = () => {
         <ul>
           {profile.friends.map(friend => (
             <li key={friend._id}>
-              <img src="/Images/friend1.jpg" alt={friend.name} />
-              <span>{friend.name}</span>
-              <button onClick={() => deleteFriend(friend._id)}>Delete</button>
+              <img src={friend.profile.images[0]} alt={friend.name} />
+              <span>{friend.username}</span>
+              {/* <button onClick={() => deleteFriend(friend._id)}>Delete</button> */}
             </li>
           ))}
         </ul>
