@@ -1,46 +1,46 @@
-/* Navbar.css */
-
 * {
     margin: 0;
-    padding: 3px;
-
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .navbar {
-
-display: flex;
-justify-content: space-between;
-padding: 12px;
-background-color: #1F1300;
-color: #fff;
-padding-inline: 45px;
-border-bottom: 1px solid rgb(148, 148, 181);
-
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Ensures vertical centering of items */
+    padding: 12px 45px;
+    background-color: #1F1300;
+    color: #fff;
+    border-bottom: 1px solid rgb(148, 148, 181);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .navbar-brand {
     font-size: 1.8rem;
-    margin-right: 20px;
     text-decoration: none;
     color: #ffc15e;
-
 }
-.navbar-left{
 
+.navbar-left {
     display: flex;
     align-items: center;
 }
 
-.navbar-right{
+.navbar-right {
     display: flex;
     align-items: center;
+    margin-left: auto; /* Pushes the right section to the far right */
+}
+
+.navbar-link {
+    color: #ffc15e;
     margin-left: 20px;
+    text-decoration: none; /* Remove underline by default */
 }
 
-.navbar-link:hover{
+.navbar-link:hover {
     text-decoration: underline;
-}
-.navbar-link{
-    color: #ffc15e
 }

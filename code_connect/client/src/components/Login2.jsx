@@ -1,4 +1,4 @@
-import '../css/Login.css'
+import '../css/Login.css';
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -17,12 +17,10 @@ const Login = () => {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:3009/api/auth/login', formData);
-            localStorage.setItem('x-auth-token', response.data.token); // Adjust based on your API response
-            // Redirect to homepage or another protected route
+            localStorage.setItem('x-auth-token', response.data.token);
             window.location.href = '/profile';
         } catch (error) {
             console.log(error);
-            // Show user-friendly error message
             alert('Login failed. Please check your credentials.');
         }
     };
@@ -54,4 +52,4 @@ const Login = () => {
     );
 };
 
-export default Login
+export default Login;
