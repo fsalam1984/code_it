@@ -39,10 +39,10 @@ const Profile = () => {
 
         {/* Profile Photo and Information */}
         <div className="profile-info">
-          <img alt="Profile Photo" className="profile-photo" />
-          <Link to="/manageprofile">
+          <img  alt="Profile Photo" className="profile-photo" />
+          {/* <Link to="/manageprofile">
             <button className="manage-profile">Manage Profile</button>
-          </Link>
+          </Link> */}
           <h1>{profile.username}</h1>
           <p>{profile.profile.bio}</p>
           <p>{profile.profile.companies}</p>

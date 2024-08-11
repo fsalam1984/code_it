@@ -4,15 +4,15 @@
     "email": "john@example.com",
     "password": "password123",
     "profile": {
-      "bio": "This is a sample bio",
+      "bio": "Indsutry pro with multiple years of experience as an DevOPS Manager.",
       "years_of_experience": 5,
-      "companies": ["Company 1", "Company 2"],
-      "job_title": "Professional Title",
-      "education": "Degree",
-      "languages": ["English"],
-      "niche": "Frontend",
-      "unique_characteristic": "Unique",
-      "images": ["/Images/user1.jpg"]
+      "companies": ["ABC Company", ", Walt Disney "],
+      "job_title": "DevOPS Manager",
+      "education": "PHD",
+      "languages": ["English, French, Arabic"],
+      "niche": "Cloud technologies",
+      "unique_characteristic": "Able to work on CICD",
+      "images": ["/Images/friend1.jpg"]
     }
     
   },
@@ -23,15 +23,15 @@
     "email": "johnsmith@example.com",
     "password": "password123",
     "profile": {
-      "bio": "Indsutry pro with multiple years of experience as an Autmation Architect.",
+      "bio": "Industry e with multiple years of experience as an Autmation Architect.",
       "years_of_experience": 12,
-      "companies": ["Apple", "Google"],
+      "companies": ["Apple", ", Google"],
       "job_title": "Quality Architect",
       "education": "PHD",
       "languages": ["English"],
       "niche": "Java",
       "unique_characteristic": "Leading team of 100 QE's.",
-      "images": ["/Images/user2.jpg"]
+      "images": ["/Images/friend3.jpg"]
     }
   },
    
@@ -40,15 +40,15 @@
     "email": "jacksmith@example.com",
     "password": "password123",
     "profile": {
-      "bio": "Indsutry pro with multiple years of experience as an Autmation Architect.",
+      "bio": "Industry leader with multiple years of experience as an Developer Lead.",
       "years_of_experience": 12,
-      "companies": ["Apple", "Google"],
-      "job_title": "Quality Architect",
-      "education": "PHD",
-      "languages": ["English"],
-      "niche": "Java",
-      "unique_characteristic": "Leading team of 100 QE's.",
-      "images": ["/Images/user2.jpg"]
+      "companies": ["Facebook", ", Uber"],
+      "job_title": "Develoop Lead",
+      "education": "Masters in CS",
+      "languages": ["English, Spanish"],
+      "niche": "Python",
+      "unique_characteristic": "Leading team of 10 Dev's.",
+      "images": ["/Images/user1.jpg"]
     }
   },
    
@@ -57,14 +57,14 @@
     "email": "mbrown@example.com",
     "password": "password123",
     "profile": {
-      "bio": "Indsutry pro with multiple years of experience as an Autmation Architect.",
+      "bio": "Industry pro with multiple years of experience as an Backend Architect.",
       "years_of_experience": 12,
       "companies": ["Apple", "Google"],
-      "job_title": "Quality Architect",
-      "education": "PHD",
+      "job_title": "Backend Architect",
+      "education": "Masters in CS",
       "languages": ["English"],
-      "niche": "Java",
-      "unique_characteristic": "Leading team of 100 QE's.",
+      "niche": "SQL, MONGO, REACT, NODE",
+      "unique_characteristic": "Building backend for Millions of users.",
       "images": ["/Images/user2.jpg"]
     }
   },
@@ -73,15 +73,15 @@
     "email": "jstone@example.com",
     "password": "password123",
     "profile": {
-      "bio": "Indsutry pro with multiple years of experience as an Autmation Architect.",
+      "bio": "Indsutry pro with multiple years of experience as an Director Engineering.",
       "years_of_experience": 12,
-      "companies": ["Apple", "Google"],
-      "job_title": "Quality Architect",
+      "companies": ["WhatsApp", ", Lyft"],
+      "job_title": "Director Engineering III",
       "education": "PHD",
-      "languages": ["English"],
-      "niche": "Java",
-      "unique_characteristic": "Leading team of 100 QE's.",
-      "images": ["/Images/user2.jpg"]
+      "languages": ["English, Spanish, German, French, Italian"],
+      "niche": "Java, API",
+      "unique_characteristic": "Building softwares for top 20 Forbes companies, leading team of many developers.",
+      "images": ["/Images/user3.jpg"]
     }
   }
 
