@@ -59,12 +59,6 @@ const Profile = () => {
 
 
   return (
-<<<<<<< HEAD
-    <div className="container-fluid mt-4">
-      <div className="row mt-4 justify-content-center">
-        <div className="col-md-8 profile-section">
-          <img src="profile-photo.jpg" alt="Profile" className="profile-photo" />
-=======
     <div>
       <h3>Welcome {profile.username}!</h3>
       <div className="profile-container">
@@ -79,7 +73,6 @@ const Profile = () => {
           {/* <Link to="/manageprofile">
             <button className="manage-profile">Manage Profile</button>
           </Link> */}
->>>>>>> 50d7531101a3ca6e16ac59d560f459648513298e
           <h1>{profile.username}</h1>
           <Link to="/manageprofile">
             <button className="btn btn-outline-secondary edit-profile-button">Edit Profile</button>
@@ -118,8 +111,6 @@ const Profile = () => {
           <p>{profile.profile.unique_characteristic}</p>
         </div>
       </div>
-<<<<<<< HEAD
-=======
 
       {/* Friends List */}
       <div className="friends-list">
@@ -142,7 +133,6 @@ const Profile = () => {
           <button className="add-friend">View Friends</button>
         </Link>
       </div>
->>>>>>> 6efdf7e62d22f51d9d4af4635c19e4f47a59b996
     </div>
     
   );
