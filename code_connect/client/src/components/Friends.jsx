@@ -14,7 +14,9 @@ const Friends = () => {
   const {loading, error, data} = useQuery(QUERY_ME)
   const [deleteFriend] = useMutation(REMOVE_FRIEND);
   if (loading){
-    return  <div>Loading</div>
+    return (
+      <div>loading</div>
+    )
   }
   const friends = data?.me?.friends || {}
   console.log(friends)
@@ -23,6 +25,8 @@ const Friends = () => {
         try {
           await deleteFriend({ variables: { friendId: id } });
           alert('Friend Deleted.')
+          window.location.assign('/friends')
+
           // Optionally, handle success feedback here
         } catch (error) {
           console.log("Error deleting friend:", error);
