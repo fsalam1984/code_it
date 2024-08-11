@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Profile.css';
+// import '../index.html'
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
@@ -11,61 +12,21 @@ const Profile = () => {
   //   friends: []
   // });
 
-  const {loading, error, data} = useQuery(QUERY_ME)
+  const { loading, error, data } = useQuery(QUERY_ME)
 
   const profile = data?.me || {}
 
-  // useEffect(() => {
-  //   // Fetch user profile data from backend
-  //   fetch('/api/user/profile')
-  //     .then(response => response.json())
-  //     .then(data => setProfile({
-  //       username: data.username,
-  //       bio: data.profile.bio,
-  //       friends: data.friends || []
-  //     }))
-  //     .catch(error => console.log('Error:', error));
-  // }, []);
 
-  const viewFriends = () => {
-    console.log("View friends clicked");
-    // Fetch friends list
-    fetch('/api/friends')
-      .then(response => response.json())
-      .then(data => setProfile(prev => ({ ...prev, friends: data })))
-      .catch(error => console.log('Error:', error));
-  };
 
-  const addFriend = () => {
-    console.log("Add friend clicked");
-    // Example friend data
-    const newFriend = { name: 'New Friend' };
-
-    fetch('/api/friends', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newFriend)
-    })
-      .then(response => response.json())
-      .then(data => viewFriends()) // Refresh friends list
-      .catch(error => console.log('Error:', error));
-  };
-
-  const deleteFriend = (id) => {
-    console.log("Delete friend clicked", id);
-    fetch(`/api/friends/${id}`, { method: 'DELETE' })
-      .then(response => response.json())
-      .then(data => viewFriends()) // Refresh friends list
-      .catch(error => console.log('Error:', error));
-  };
-
-  if(loading) {
-    return(
+  if (loading) {
+    return (
       <>
-      <>Still loading</>
+        <>Still loading</>
       </>
     )
   }
+
+
 
   return (
     <div>
@@ -111,10 +72,11 @@ const Profile = () => {
       <div className="friend-actions">
         {/* <button className="view-friends" onClick={viewFriends}>View Friends</button> */}
         <Link to="/friends">
-                <button className="add-friend" onClick={viewFriends}>View Friends</button>
-                </Link>
+          <button className="add-friend">View Friends</button>
+        </Link>
       </div>
     </div>
+    
   );
 };
 

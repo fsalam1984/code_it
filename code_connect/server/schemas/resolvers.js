@@ -10,10 +10,35 @@ const resolvers = {
       return User.findOne({ username }).populate("friends")
     },
     me: async (parent, args, context) => {
+      //   if (context.user) {
+      //     return User.findOne({ _id: context.user._id }).populate("friends")
+      //   }
+      //   throw AuthenticationError;
+      // },
+//Updated code to handle limit of friends
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("friends")
+        // Destructure limit from arguments
+        const { limit } = args;
+
+        // Find the user by ID and populate the friends field
+        const user = await User.findOne({ _id: context.user._id })
+          .populate({
+            path: 'friends',
+            options: {
+              // Apply limit if provided
+              ...(limit ? { limit } : {}),
+            },
+          })
+          .exec(); // Ensure query execution
+
+        if (!user) {
+          throw new AuthenticationError('User not found');
+        }
+
+        return user;
       }
-      throw AuthenticationError;
+      throw new AuthenticationError('User not authenticated');
+
     },
   },
 
@@ -53,7 +78,7 @@ const resolvers = {
             new: true,
             runValidators: true,
           }
-        );
+        ).populate('friends')
       }
       throw AuthenticationError;
     },
@@ -67,7 +92,7 @@ const resolvers = {
             },
           },
           { new: true }
-        );
+        ).populate('friends');
       }
       throw AuthenticationError;
     },
