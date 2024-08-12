@@ -5,8 +5,22 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 
 const Profile = () => {
-  const { loading, error, data } = useQuery(QUERY_ME);
-  const profile = data?.me || {};
+
+  const {loading, error, data} = useQuery(QUERY_ME)
+
+  const profile = data?.me || {}
+
+  // useEffect(() => {
+  //   // Fetch user profile data from backend
+  //   fetch('/api/user/profile')
+  //     .then(response => response.json())
+  //     .then(data => setProfile({
+  //       username: data.username,
+  //       bio: data.profile.bio,
+  //       friends: data.friends || []
+  //     }))
+  //     .catch(error => console.log('Error:', error));
+  // }, []);
 
   const viewFriends = () => {
     console.log("View friends clicked");

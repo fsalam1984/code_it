@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import {
   ApolloClient,
   InMemoryCache,
@@ -46,7 +44,7 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <ApolloProvider client={client}>

@@ -10,8 +10,8 @@ const resolvers = {
       throw new AuthenticationError('User not authenticated');
 
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username }).populate("friends")
+    user: async (parent, { _id }) => {
+      return User.findOne({ _id }).populate("friends")
     },
     me: async (parent, args, context) => {
       //   if (context.user) {
@@ -84,7 +84,7 @@ const resolvers = {
             new: true,
             runValidators: true,
           }
-        ).populate('friends')
+        )
       }
       throw AuthenticationError;
     },
@@ -98,7 +98,7 @@ const resolvers = {
             },
           },
           { new: true }
-        ).populate('friends');
+        )
       }
       throw AuthenticationError;
     },

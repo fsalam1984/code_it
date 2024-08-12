@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
 /* body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -41,6 +42,10 @@
     background: url('/Images/musk3.jpg') center;
 
 } */
+
+.form-group{
+    font-family: 'Audiowide', sans-serif;
+}
 
 .profile-info {
     margin-top: 75px;
@@ -125,6 +130,8 @@
     border-radius: 100%;
     margin-right: 15px;
 }
+<<<<<<< HEAD
+=======
 
 
 /*Login */
@@ -196,3 +203,4 @@
 
 
 }
+>>>>>>> 7d64ef6a813ceb3098f4b881c0cbe8caad5ecc90
