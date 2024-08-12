@@ -49,6 +49,20 @@ const Profile = () => {
       <div className="row mt-4 justify-content-center">
         <div className="col-md-8 profile-section">
           <img src="profile-photo.jpg" alt="Profile" className="profile-photo" />
+    <div>
+      <h3>Welcome {profile.username}!</h3>
+      <div className="profile-container">
+        {/* Cover Photo */}
+        <div className="cover-photo">
+          <img alt="Cover Photo" />
+        </div>
+
+        {/* Profile Photo and Information */}
+        <div className="profile-info">
+          <img  alt="Profile Photo" className="profile-photo" />
+          {/* <Link to="/manageprofile">
+            <button className="manage-profile">Manage Profile</button>
+          </Link> */}
           <h1>{profile.username}</h1>
           <Link to="/manageprofile">
             <button className="btn btn-outline-secondary edit-profile-button">Edit Profile</button>
