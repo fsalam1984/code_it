@@ -3,7 +3,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 
 // Connect to MongoDB using the connection string from environment variables
-mongoose.connect(process.env.MONGO_URI_PROD)
+mongoose.connect(process.env.MONGO_URI)
 
 // Handle connection events
 const db = mongoose.connection;

@@ -50,6 +50,11 @@
 // const __dirname = path.dirname(_filename)
 
 // //Production Render :
+
+
+
+
+
 // const express = require('express');
 // const { ApolloServer } = require('@apollo/server');
 // const { expressMiddleware } = require('@apollo/server/express4');
@@ -111,9 +116,16 @@ const { expressMiddleware } = require('@apollo/server/express4');
 const { authMiddleware } = require('./utils/auth');
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
+// const meta_url = require('meta')
+// import { fileURLToPath } from 'url';
 
-// Resolving __dirname in CommonJS (you don't need fileURLToPath for CommonJS)
-// const __dirname = path.resolve(); // This gives you the root directory of your project, which should work for most cases.
+// const path = require('path');
+// //Resolving dirname for ES module
+// const _filename = fileURLToPath(new URL(import.meta.url));
+// const __dirname = path.dirname(_filename)
+// const __filename = fileURLToPath(meta_url)
+// // Resolving __dirname in CommonJS (you don't need fileURLToPath for CommonJS)
+// const __dirname = path.dirname(__filename); // This gives you the root directory of your project, which should work for most cases.
 
 const PORT = process.env.PORT || 3001;
 const app = express();
