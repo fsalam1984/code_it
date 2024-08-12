@@ -3,7 +3,7 @@
 }
 
 .form-container {
-    background-color: #ffc15e;
+    background: linear-gradient(to top, #ffc15e, #cc5803);
     border-radius: 20px;
     padding: 40px;
     width: 300px;
