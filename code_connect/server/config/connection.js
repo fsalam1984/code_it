@@ -3,10 +3,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 
 // Connect to MongoDB using the connection string from environment variables
-mongoose.connect(process.env.MONGO_URI_PROD, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(process.env.MONGO_URI_PROD)
 
 // Handle connection events
 const db = mongoose.connection;
