@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "postinstall": "npm install", 
+    "postinstall": "npm install",
     "seed": "node seeders/seed.js"
   },
   "keywords": [],
