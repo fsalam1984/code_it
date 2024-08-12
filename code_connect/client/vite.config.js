@@ -27,7 +27,7 @@ export default defineConfig({
   build: {
     outDir: 'dist', // Directory where the build files will be output
     sourcemap: false, // Disable source maps for production
-    minify: 'terser', // Use terser for minification, you can also use 'esbuild'
+     // Use terser for minification, you can also use 'esbuild'
     chunkSizeWarningLimit: 500, // Adjust chunk size warning limit as needed
   },
   server: {
