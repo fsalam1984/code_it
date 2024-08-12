@@ -50,8 +50,13 @@ body {
 
 /* Profile Info */
 .profile-info {
-    margin-top: 75px;
+    background-color: #cc5803;
+    color: #1f1300;
     padding: 20px;
+    border-radius: 15px;
+    flex: 0.75;
+    height: 400px;
+    border: 2px solid #1f1300;
 }
 
 .profile-info h1 {
