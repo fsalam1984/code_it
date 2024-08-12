@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "postinstall": "npm install",
-    "seed": "node seeders/seed.js",
-    "install": "cd server && npm install",
-    "build": "npm install --prefix ./client && npm run build --prefix ./client && npm install"
-  },
+ "scripts": {
+  "start": "node server.js",
+  "seed": "node seeders/seed.js",
+  "install:server": "cd server && npm install",
+  "install:client": "cd client && npm install",
+  "build:client": "cd client && npm run build",
+  "build": "npm run build:client && npm run install:server",
+  "postinstall": "npm run install:server && npm run install:client"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
