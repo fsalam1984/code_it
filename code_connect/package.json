@@ -18,7 +18,9 @@
     },
     "dependencies": {
       "apollo-server-express": "^3.13.0",
-      "cors": "^2.8.5"
+      "cors": "^2.8.5",
+      "vite": "^5.4.0"
+
     }
   }
   
