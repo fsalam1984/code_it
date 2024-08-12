@@ -7,7 +7,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: orange;
 }
 
 /* Profile Container */
@@ -16,8 +16,8 @@ body {
     margin: 20px auto;
     padding: 0 20px;
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px; /* Slightly more rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow for depth */
     overflow: hidden;
 }
 
@@ -25,59 +25,112 @@ body {
 .cover-photo {
     position: relative;
     width: 100%;
-    height: 200px;
+    height: 250px; /* Increased height for a more impactful cover photo */
     background: url('/Images/Technology Cover-Banner.png') center;
     background-size: cover;
-}
-
-.cover-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    border-bottom: 5px solid #1a73e8; /* Accent border at the bottom */
 }
 
 /* Profile Photo */
 .profile-photo {
     position: absolute;
-    top: 150px;
+    top: 180px;
     left: 20px;
     width: 250px;
     height: 250px;
     border-radius: 50%;
     border: 5px solid #fff;
-    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.1); /* Slightly thicker shadow */
 }
 
 /* Profile Info */
 .profile-info {
-    margin-top: 75px;
-    padding: 20px;
+    margin-top: 120px; /* Adjusted margin for better alignment with profile photo */
+    padding: 30px;
+    background-color: #fff; /* Light background for better readability */
+    border-radius: 12px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    color: #333; /* Consistent text color */
 }
 
 .profile-info h1 {
     margin: 0;
-    font-size: 24px;
-    color: #333;
+    font-size: 32px; /* Larger font size for a more prominent header */
+    color: #1a73e8; /* Vibrant blue color for the header */
+    text-align: center; /* Center align for a balanced look */
 }
 
+/* Choose one of the styles below */
+
+/* Gradient Text Color */
 .profile-info p {
-    margin: 10px 0;
-    color: #666;
+    margin: 15px 0;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+    background: linear-gradient(45deg, #f76c6c, #ff6f61, #f5a623);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+/* 
+Text Shadow
+.profile-info p {
+    margin: 15px 0;
+    color: #532222;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.6), 
+                 2px 2px 8px rgba(0, 204, 255, 0.5), 
+                 0 0 25px rgba(255, 215, 0, 0.5);
+} */
+
+/* Background Color with Text Color */
+.profile-info p {
+    margin: 15px 0;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+    background-color: #ff6f61;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Multi-Colored Text */
+.profile-info p {
+    margin: 15px 0;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+    background: linear-gradient(45deg, #ff6f61, #ffce54, #6db3f2);
+    -webkit-background-clip: text;
+    font-weight: bold;
+}
+
 
 .profile-info .contact-info {
-    font-size: 14px;
+    font-size: 18px; /* Larger font size for contact info */
+    margin-top: 20px;
+    text-align: center; /* Center align for better layout */
 }
 
 .profile-info .contact-info a {
-    color: #1a73e8;
+    color: #1a73e8; /* Blue color for links */
     text-decoration: none;
+    font-weight: bold; /* Bold font weight for better visibility */
+}
+
+.profile-info .contact-info a:hover {
+    text-decoration: underline; /* Underline link on hover for emphasis */
+    color: #0056b3; /* Darker blue color on hover */
 }
 
 /* Button Styles */
 .button {
     border: none;
-    color: Blue;
+    color: #fff;
+    background-color: #007bff; /* Vibrant blue */
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -85,6 +138,12 @@ body {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    border-radius: 8px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 /* Friends List */
@@ -98,13 +157,18 @@ body {
 }
 
 .friends-list ul li {
-    background: #f9f9f9;
+    background: #fff;
     margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: 8px; /* More rounded corners */
     border: 1px solid #ddd;
     display: flex;
     align-items: center;
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.friends-list ul li:hover {
+    background-color: #e3f2fd; /* Light blue on hover */
 }
 
 .friends-list ul li img {
@@ -123,9 +187,10 @@ body {
     padding: 10px 20px;
     margin-right: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px; /* Rounded corners */
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
 .friend-actions button.view-friends {
@@ -148,11 +213,11 @@ body {
     .profile-photo {
         width: 150px;
         height: 150px;
-        top: 80px;
+        top: 100px; /* Adjusted for smaller screen */
     }
 
     .profile-info h1 {
-        font-size: 20px;
+        font-size: 22px; /* Adjusted font size for smaller screens */
     }
 
     .profile-info p {
@@ -178,11 +243,10 @@ body {
     .profile-photo {
         width: 120px;
         height: 120px;
-       
     }
 
     .profile-info h1 {
-        font-size: 18px;
+        font-size: 20px; /* Adjusted font size for very small screens */
     }
 
     .profile-info p {

@@ -49,7 +49,7 @@ const Friends = () => {
             <span>{friend.profile.bio}</span>
             <span>{friend.profile.education}</span>
             {/* <button onClick={() => handleAddFriend(friend._id)}>Add Friend</button> */}
-            <button onClick={() => handleDeleteFriend(friend._id)}>Remove Friend</button>
+            <button className="remove-friend"onClick={() => handleDeleteFriend(friend._id)}>Remove Friend</button>
           </li>
         ))}
       </ul>
@@ -60,18 +60,6 @@ const Friends = () => {
     </div>
 
     <div className="friend-actions">
-    {/* <input
-        type="text"
-        placeholder="Your User ID"
-        value={userId}
-        onChange={(e) => setUserId(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Friend User ID"
-        value={friendId}
-        onChange={(e) => setFriendId(e.target.value)}
-      /> */}
        
          <Link to='/potential-friends' >
         <button className="add-friend" >Add Friend</button>
