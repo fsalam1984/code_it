@@ -1,100 +1,69 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import '../css/CreateAccount.css'; // Import CSS for styling
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations'; // Assuming ADD_USER is a valid mutation
 
 const CreateAccount = () => {
-  // State for form inputs
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [bio, setBio] = useState('');
-  const [yearsOfExp, setYearsOfExp] = useState('');
-  const [employers, setEmployers] = useState('');
-  const [jobTitle, setJobTitle] = useState('');
-  const [error, setError] = useState(null); // For handling errors
-  const [success, setSuccess] = useState(null); // For handling success messages
-
   // Handle form submission
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    
-    // Prepare data to be sent to the backend
-    const profileData = {
-      bio,
-      yearsOfExp,
-      employers,
-      jobTitle,
-      username,
-      password,
-    };
+  const [addUser] = useMutation(ADD_USER);
+  const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+  const [error, setError] = useState(null); // To handle errors
+  const [success, setSuccess] = useState(null); // To handle success feedback
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    const { username, email, password } = formState;
+    
     try {
-      // Send data to the backend
-      await axios.post('/api/user/profile', profileData);
-      setSuccess('Profile created successfully! Redirecting...');
+      await addUser({ variables: { username, email, password } });
+      setSuccess('Account created successfully! Redirecting...');
       setTimeout(() => {
-        // Redirect to login page or another route after success
-        window.location.href = '/login'; // Adjust the path as needed
-      }, 2000); // Delay to allow user to see the success message
-    } catch (error) {
-      console.error('There was an error creating the profile:', error);
-      setError('Profile creation failed. Please try again.');
+        window.location.assign('/'); // Redirect after success
+      }, 2000);
+    } catch (err) {
+      setError('Error creating account. Please try again.');
+      console.error('Error adding user:', err);
     }
   };
 
   return (
-    <div className='add-profile'>
-      <h2>Create Profile</h2>
+    <div className='form-container'>
+      <h2>Create Account</h2>
       {error && <p className="error">{error}</p>}
       {success && <p className="success">{success}</p>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor='bio'>Bio:</label>
+          <label htmlFor='email'>Email:</label>
           <input
-            type='text'
-            id='bio'
-            value={bio}
-            onChange={(e) => setBio(e.target.value)}
-            placeholder='Enter Bio'
+            type="text"
+            id='email'
+            name='email' // Ensure name attribute is set
+            value={formState.email}
+            onChange={handleChange}
+            placeholder='Enter Email'
+            required
           />
         </div>
-        <div className="form-group">
-          <label htmlFor='yearsOfExp'>Years of Experience:</label>
-          <input
-            type='text'
-            id='yearsOfExp'
-            value={yearsOfExp}
-            onChange={(e) => setYearsOfExp(e.target.value)}
-            placeholder='Enter Years of Experience'
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor='employers'>Employers:</label>
-          <input
-            type='text'
-            id='employers'
-            value={employers}
-            onChange={(e) => setEmployers(e.target.value)}
-            placeholder='Enter Employers'
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor='jobTitle'>Job Title:</label>
-          <input
-            type='text'
-            id='jobTitle'
-            value={jobTitle}
-            onChange={(e) => setJobTitle(e.target.value)}
-            placeholder='Enter Job Title'
-          />
-        </div>
+
         <div className="form-group">
           <label htmlFor='username'>Username:</label>
           <input
             type='text'
             id='username'
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            name='username' // Ensure name attribute is set
+            value={formState.username}
+            onChange={handleChange}
             placeholder='Enter Username'
+            required
           />
         </div>
         <div className="form-group">
@@ -102,12 +71,14 @@ const CreateAccount = () => {
           <input
             type='password'
             id='password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            name='password' // Ensure name attribute is set
+            value={formState.password}
+            onChange={handleChange}
             placeholder='Enter Password'
+            required
           />
         </div>
-        <button type='submit' className='btn-submit'>Submit</button>
+        <button type="submit">Next</button>
       </form>
     </div>
   );

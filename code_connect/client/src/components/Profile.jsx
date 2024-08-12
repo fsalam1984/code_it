@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import '../css/Profile.css';
-// import '../index.html'
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
@@ -59,6 +58,10 @@ const Profile = () => {
 
 
   return (
+    <div className="container-fluid mt-4">
+      <div className="row mt-4 justify-content-center">
+        <div className="col-md-8 profile-section">
+          <img src="profile-photo.jpg" alt="Profile" className="profile-photo" />
     <div>
       <h3>Welcome {profile.username}!</h3>
       <div className="profile-container">
@@ -78,6 +81,7 @@ const Profile = () => {
             <button className="btn btn-outline-secondary edit-profile-button">Edit Profile</button>
           </Link>
         </div>
+      </div>
       </div>
 
       <div className="row mt-4 friends-profile-container">
@@ -112,29 +116,41 @@ const Profile = () => {
         </div>
       </div>
 
-      {/* Friends List */}
-      <div className="friends-list">
-        <h2>Friends</h2>
-        <ul>
-          {profile.friends.map(friend => (
-            <li key={friend._id}>
-              <img src={friend.profile.images[0]} alt={friend.name} />
-              <span>{friend.username}</span>
-              {/* <button onClick={() => deleteFriend(friend._id)}>Delete</button> */}
-            </li>
-          ))}
-        </ul>
-      </div>
+          <div className="row mt-4 friends-profile-container">
+            <div className="col-md-6 friends-list">
+              <h3>Friends</h3>
+              <ul className="list-group">
+                {profile.friends?.length > 0 ? (
+                  profile.friends.map(friend => (
+                    <li key={friend._id} className="list-group-item">
+                      <img src={friend.profile?.images[0] || "/Images/friend1.jpg"} alt={friend.name} />
+                      <span>{friend.name}</span>
+                      <button onClick={() => deleteFriend(friend._id)}>Delete</button>
+                    </li>
+                  ))
+                ) : (
+                  <div>No friends available.</div>
+                )}
+              </ul>
+              <div className="d-flex justify-content-between mt-2">
+                <button className="btn-custom" onClick={viewFriends}>View Friends</button>
+                <button className="btn-custom" onClick={addFriend}>Add Friend</button>
+              </div>
+            </div>
 
-      {/* Friend Actions */}
-      <div className="friend-actions">
-        {/* <button className="view-friends" onClick={viewFriends}>View Friends</button> */}
-        <Link to="/friends">
-          <button className="add-friend">View Friends</button>
-        </Link>
+            <div className="col-md-6 profile-info">
+              <h3>Profile Information</h3>
+              <p>{profile.profile?.bio}</p>
+              <p>{profile.profile?.companies}</p>
+              <p>{profile.profile?.job_title}</p>
+              <p>{profile.profile?.education}</p>
+              <p>{profile.profile?.niche}</p>
+              <p>{profile.profile?.unique_characteristic}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    
   );
 };
 

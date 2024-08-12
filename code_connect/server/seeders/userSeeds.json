@@ -4,14 +4,14 @@
     "email": "john@example.com",
     "password": "password123",
     "profile": {
-      "bio": "Indsutry pro with multiple years of experience as an DevOPS Manager.",
+      "bio": "Industry pro with multiple years of experience as a DevOps Manager.",
       "years_of_experience": 5,
-      "companies": ["ABC Company", ", Walt Disney "],
-      "job_title": "DevOPS Manager",
-      "education": "PHD",
-      "languages": ["English, French, Arabic"],
+      "companies": ["ABC Company", "Walt Disney"],
+      "job_title": "DevOps Manager",
+      "education": "Ph.D.",
+      "languages": ["English", "French", "Arabic"],
       "niche": "Cloud technologies",
-      "unique_characteristic": "Able to work on CICD",
+      "unique_characteristic": "Able to work on CI/CD",
       "images": ["/Images/friend1.jpg"]
     }
   },
@@ -20,14 +20,14 @@
     "email": "johnsmith@example.com",
     "password": "password123",
     "profile": {
-      "bio": "Industry e with multiple years of experience as an Autmation Architect.",
+      "bio": "Industry expert with multiple years of experience as an Automation Architect.",
       "years_of_experience": 12,
-      "companies": ["Apple", ", Google"],
+      "companies": ["Apple", "Google"],
       "job_title": "Quality Architect",
-      "education": "PHD",
-      "languages": ["English"],
-      "niche": "Java",
-      "unique_characteristic": "Leading team of 100 QE's.",
+      "education": "Ph.D.",
+      "languages": ["English", "Bengali", "Arabic"],
+      "niche": "Java, JavaScript, Node, React, Mongoose",
+      "unique_characteristic": "Leading a team of 100 QEs.",
       "images": ["/Images/friend3.jpg"]
     }
   },
@@ -36,14 +36,14 @@
     "email": "jacksmith@example.com",
     "password": "password123",
     "profile": {
-      "bio": "Industry leader with multiple years of experience as an Developer Lead.",
+      "bio": "Industry leader with multiple years of experience as a Developer Lead.",
       "years_of_experience": 12,
-      "companies": ["Facebook", ", Uber"],
-      "job_title": "Develoop Lead",
-      "education": "Masters in CS",
-      "languages": ["English, Spanish"],
+      "companies": ["Facebook", "Uber"],
+      "job_title": "Developer Lead",
+      "education": "Master's in Computer Science",
+      "languages": ["English", "Spanish"],
       "niche": "Python",
-      "unique_characteristic": "Leading team of 10 Dev's.",
+      "unique_characteristic": "Leading a team of 10 developers.",
       "images": ["/Images/user1.jpg"]
     }
   },
@@ -52,14 +52,14 @@
     "email": "mbrown@example.com",
     "password": "password123",
     "profile": {
-      "bio": "Industry pro with multiple years of experience as an Backend Architect.",
+      "bio": "Industry pro with multiple years of experience as a Backend Architect.",
       "years_of_experience": 12,
-      "companies": ["Apple", "Google"],
+      "companies": ["Apple", "Google", "Netflix", "Amazon"],
       "job_title": "Backend Architect",
-      "education": "Masters in CS",
+      "education": "Master's in Computer Science",
       "languages": ["English"],
-      "niche": "SQL, MONGO, REACT, NODE",
-      "unique_characteristic": "Building backend for Millions of users.",
+      "niche": "SQL, MongoDB, React, Node.js",
+      "unique_characteristic": "Building backends for millions of users.",
       "images": ["/Images/user2.jpg"]
     }
   },
@@ -68,27 +68,15 @@
     "email": "jstone@example.com",
     "password": "password123",
     "profile": {
-      "bio": "Indsutry pro with multiple years of experience as an Director Engineering.",
+      "bio": "Industry pro with multiple years of experience as a Director of Engineering.",
       "years_of_experience": 12,
-      "companies": ["WhatsApp", ", Lyft"],
-      "job_title": "Director Engineering III",
-      "education": "PHD",
-      "languages": ["English, Spanish, German, French, Italian"],
-      "niche": "Java, API",
-      "unique_characteristic": "Building softwares for top 20 Forbes companies, leading team of many developers.",
+      "companies": ["WhatsApp", "Lyft"],
+      "job_title": "Director of Engineering III",
+      "education": "Ph.D.",
+      "languages": ["English", "Spanish", "German", "French", "Italian"],
+      "niche": "Java, API Development",
+      "unique_characteristic": "Building software for top 20 Forbes companies, leading a team of many developers.",
       "images": ["/Images/user3.jpg"]
     }
   }
 ]
-
-
-
-
-
-
-
-
-
-
-
-
