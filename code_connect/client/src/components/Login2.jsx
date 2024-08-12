@@ -1,41 +1,26 @@
-import '../css/Login.css'
+import '../css/Login.css';
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
-import Auth from '../utils/auth';
+import axios from 'axios';
 
 const Login = () => {
+    const [formData, setFormData] = useState({
+        username: '',
+        password: ''
+    });
 
-    const [loginUser] = useMutation(LOGIN_USER)
-
-    const [formState, setFormState] = useState({ email: '', password: '' });
-
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-    
-        setFormState({
-          ...formState,
-          [name]: value,
-        });
-      };
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-   
-            const { data } = await loginUser({
-                variables: { ...formState },
-              });
-        
-              Auth.login(data.login.token);
-
-
-            // Redirect to homepage or another protected route
+            const response = await axios.post('http://localhost:3009/api/auth/login', formData);
+            localStorage.setItem('x-auth-token', response.data.token);
             window.location.href = '/profile';
-            console.log("Login is successful");
         } catch (error) {
             console.log(error);
-            // Show user-friendly error message
             alert('Login failed. Please check your credentials.');
         }
     };
@@ -46,9 +31,9 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    name="email"
-                    placeholder="email"
-                    value={formState.email}
+                    name="username"
+                    placeholder="username"
+                    value={formData.username}
                     onChange={handleChange}
                     required
                 />
@@ -56,7 +41,7 @@ const Login = () => {
                     type="password"
                     name="password"
                     placeholder="password"
-                    value={formState.password}
+                    value={formData.password}
                     onChange={handleChange}
                     required
                 />
@@ -67,4 +52,4 @@ const Login = () => {
     );
 };
 
-export default Login
+export default Login;
