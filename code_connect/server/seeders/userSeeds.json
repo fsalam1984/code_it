@@ -73,7 +73,7 @@
     "email": "jstone@example.com",
     "password": "password123",
     "profile": {
-      "bio": "Indsutry pro with multiple years of experience as an Director Engineering.",
+      "bio": "Industry pro with multiple years of experience as an Director Engineering.",
       "years_of_experience": 12,
       "companies": ["WhatsApp", ", Lyft."],
       "job_title": "Director Engineering III.",
