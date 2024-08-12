@@ -43,7 +43,12 @@
 
 // // Call the async function to start the server
 //   startApolloServer();
+import path from 'path'
+import {fileURLToPath, filteURLToPath} from 'url'
 
+//Resolving dirname for ES module
+const _filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(_filename)
 
 //Production Render :
 const express = require('express');
@@ -76,10 +81,10 @@ const startApolloServer = async () => {
 
   // Serve static files from the client build directory
   if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../client/build')));
+    app.use(express.static(path.join(__dirname, '../client/dist')));
 
     app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+      res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
     });
   } else {
     // For development, you might want to serve client files differently

@@ -14,10 +14,11 @@
     "description": "",
     "dependencies": {
         "apollo-server-express": "^3.13.0",
-        "cors": "^2.8.5",
-        "concurrently": "^5.3.0"
+        "concurrently": "^5.3.0",
+        "cors": "^2.8.5"
     },
     "devDependencies": {
+        "serve": "^14.2.3",
         "vite": "^5.4.0"
     },
     "engines": {
