@@ -10,16 +10,13 @@ import { setContext } from '@apollo/client/link/context';
 import Home from './components/Home'
 import Navbar from './components/Navbar'
 import Login from './components/Login'
-import Login2 from './components/Login'
 import Profile from './components/Profile'
-import AddProfile from './components/AddProfile'
 import CreateAccount from './components/CreateAccount'
 import ManageProfile from './components/ManageProfile'
 import Registration from './components/Registrations'
 import Friends from './components/Friends'
-import FriendActions from './components/FriendActions'
-import Friendscopy from './components/Friendscopy'
 import PotentialFriends from './components/PotentialFriends'
+import NotFound from './components/NotFound';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -62,6 +59,8 @@ function App() {
           <Route path='/friends' element={<Friends />}></Route>
           <Route path='/create-account' element={<CreateAccount />}></Route>
           <Route path='/potential-friends' element={<PotentialFriends />}></Route>
+          <Route path='*' element={<NotFound />}></Route>
+
         </Routes>
       </BrowserRouter>
     </ApolloProvider>
