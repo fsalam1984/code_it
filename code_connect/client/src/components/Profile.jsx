@@ -6,17 +6,8 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 
 const Profile = () => {
-  // const [profile, setProfile] = useState({
-  //   username: 'John Doe',
-  //   bio: 'Lorem ipsum dolor sit amet...',
-  //   friends: []
-  // });
-
   const { loading, error, data } = useQuery(QUERY_ME)
-
   const profile = data?.me || {}
-
-
 
   if (loading) {
     return (
@@ -25,8 +16,6 @@ const Profile = () => {
       </>
     )
   }
-
-
 
   return (
     <div>
@@ -39,7 +28,7 @@ const Profile = () => {
 
         {/* Profile Photo and Information */}
         <div className="profile-info">
-          <img  src={profile.images} alt="Profile Photo" className="profile-photo" />
+          <img  src={profile.profile.images} alt="Profile Photo" className="profile-photo" />
           {/* <Link to="/manageprofile">
             <button className="manage-profile">Manage Profile</button>
           </Link> */}
