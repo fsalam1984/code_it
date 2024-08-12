@@ -1,9 +1,16 @@
-/* body {
+/* General Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-} */
+}
+
+/* Profile Container */
 .profile-container {
     max-width: 1200px;
     margin: 20px auto;
@@ -14,12 +21,13 @@
     overflow: hidden;
 }
 
+/* Cover Photo */
 .cover-photo {
     position: relative;
     width: 100%;
     height: 200px;
-    /* background-color: #ddd; */
     background: url('/Images/Technology Cover-Banner.png') center;
+    background-size: cover;
 }
 
 .cover-photo img {
@@ -28,21 +36,19 @@
     object-fit: cover;
 }
 
+/* Profile Photo */
 .profile-photo {
     position: absolute;
-    top: 100px;
-    margin-top: 25px;
+    top: 150px;
     left: 20px;
     width: 250px;
     height: 250px;
     border-radius: 50%;
     border: 5px solid #fff;
     box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
- 
-   
-
 }
 
+/* Profile Info */
 .profile-info {
     margin-top: 75px;
     padding: 20px;
@@ -68,6 +74,7 @@
     text-decoration: none;
 }
 
+/* Button Styles */
 .button {
     border: none;
     color: Blue;
@@ -78,27 +85,40 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-  }
+}
 
-
-  .friends-list {
+/* Friends List */
+.friends-list {
     margin-top: 20px;
 }
+
 .friends-list ul {
     list-style: none;
     padding: 0;
 }
+
 .friends-list ul li {
     background: #f9f9f9;
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
 }
 
+.friends-list ul li img {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+/* Friend Actions */
 .friend-actions {
     margin-top: 20px;
 }
+
 .friend-actions button {
     padding: 10px 20px;
     margin-right: 10px;
@@ -107,22 +127,79 @@
     cursor: pointer;
     font-size: 16px;
 }
+
 .friend-actions button.view-friends {
     background-color: #1a73e8;
     color: #fff;
 }
+
 .friend-actions button.add-friend {
     background-color: #34a853;
     color: #fff;
 }
+
 .friend-actions button.delete-friend {
     background-color: #ea4335;
     color: #fff;
 }
 
-.friends-list ul li img {
-    width: 125px;
-    height: 125px;
-    border-radius: 100%;
-    margin-right: 15px;
+/* Media Queries */
+@media (max-width: 768px) {
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+        top: 80px;
+    }
+
+    .profile-info h1 {
+        font-size: 20px;
+    }
+
+    .profile-info p {
+        font-size: 14px;
+    }
+
+    .profile-container {
+        padding: 10px;
+    }
+
+    .friends-list ul li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .friends-list ul li img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+       
+    }
+
+    .profile-info h1 {
+        font-size: 18px;
+    }
+
+    .profile-info p {
+        font-size: 12px;
+    }
+
+    .profile-container {
+        padding: 5px;
+    }
+
+    .friends-list ul li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .friends-list ul li img {
+        width: 80px;
+        height: 80px;
+    }
 }
