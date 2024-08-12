@@ -1,46 +1,38 @@
 /* Login Styles */
 
-.login-page {
+.form-container {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Adjusted to cover the full viewport height */
-    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background for a modern look */
+    height: 100vh;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background for modern look */
 }
 
-.login-container {
-    background-color: white;
-    border-radius: 12px; /* Rounded corners for a softer look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    padding: 25px;
-    width: 100%;
-    max-width: 360px; /* Increased width for better readability on larger screens */
-    text-align: center; /* Centered text alignment */
-}
-
-.login-container h2 {
+.form-container h2 {
     margin-bottom: 20px;
     font-size: 1.8rem; /* Larger font size for better readability */
     color: #333; /* Darker text color for contrast */
 }
 
-.login-container .form-group {
+.form-container form {
+    background-color: white;
+    border-radius: 12px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    padding: 25px;
+    width: 100%;
+    max-width: 360px; /* Increased width for better readability */
+    text-align: center; /* Centered text alignment */
+}
+
+.form-container .form-group {
     margin-bottom: 20px; /* Increased margin for better spacing */
 }
 
-.login-container .form-group label {
-    display: block;
-    font-size: 15px; /* Slightly larger font size for better readability */
-    font-weight: 600; /* Bolder font weight for labels */
-    margin-bottom: 8px;
-    color: #555; /* Lighter text color for labels */
-}
-
-.login-container .form-group input,
-.login-container .form-group select {
+.form-container input {
     width: 100%;
     padding: 12px; /* Increased padding for better usability */
     box-sizing: border-box;
@@ -48,15 +40,14 @@
     border-radius: 6px; /* Rounded corners for input fields */
     margin-top: 5px;
     font-size: 16px; /* Larger font size for better readability */
-}
-
-.login-container .form-group input:focus,
-.login-container .form-group select:focus {
-    border-color: #007bff; /* Highlight border color on focus */
     outline: none; /* Remove default outline */
 }
 
-.login-container .btn-login {
+.form-container input:focus {
+    border-color: #007bff; /* Highlight border color on focus */
+}
+
+.form-container button {
     background-color: #28a745; /* Updated to a more visually appealing green */
     color: white;
     padding: 12px;
@@ -69,6 +60,21 @@
     transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
-.login-container .btn-login:hover {
+.form-container button:hover {
     background-color: #218838; /* Darker green on hover */
+}
+
+.form-container p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666; /* Lighter text color for better contrast */
+}
+
+.form-container a {
+    color: #007bff; /* Blue color for links */
+    text-decoration: none;
+}
+
+.form-container a:hover {
+    text-decoration: underline; /* Underline link on hover */
 }
