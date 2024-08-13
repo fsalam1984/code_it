@@ -1,75 +1,53 @@
 import React, { useState, useEffect } from 'react';
-import '../css/Profile.css'
-import { Link } from 'react-router-dom'
-import axios from 'axios';
+import '../css/Friends.css';
+import { Link } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
-import { QUERY_ALL_USERS, QUERY_ME } from '../utils/queries';
+import { QUERY_ME } from '../utils/queries';
 import { REMOVE_FRIEND } from '../utils/mutations';
+
 const Friends = () => {
-  // const [userId, setUserId] = useState('');
-  // const [friendId, setFriendId] = useState('');
-  const {loading, error, data} = useQuery(QUERY_ME)
+  const { loading, error, data } = useQuery(QUERY_ME);
   const [deleteFriend] = useMutation(REMOVE_FRIEND);
-  if (loading){
-    return (
-      <div>loading</div>
-    )
-  }
-  const friends = data?.me?.friends || {}
-  console.log(friends)
-       // Function to handle deleting a friend
-       const handleDeleteFriend = async (id) => {
-        try {
-          await deleteFriend({ variables: { friendId: id } });
-          alert('Friend Deleted.')
-          window.location.assign('/friends')
-          // Optionally, handle success feedback here
-        } catch (error) {
-          console.log("Error deleting friend:", error);
-        }
-      };
-    return (
-        <div>
-      <div className="friends-list">
-      <h2>Friends</h2>
-      <ul>
-        <ul>
-        {friends.map(friend => (
-          <li key={friend.id}>
-            <img src={friend.profile.images[0]} alt={friend.name} />
-            <span>{friend.username}</span>
-            <span>{friend.profile.bio}</span>
-            <span>{friend.profile.education}</span>
-            {/* <button onClick={() => handleAddFriend(friend._id)}>Add Friend</button> */}
-            <button onClick={() => handleDeleteFriend(friend._id)}>Remove Friend</button>
-          </li>
+
+  if (loading) return <div>Loading...</div>;
+
+  const friends = data?.me?.friends || [];
+
+  const handleDeleteFriend = async (id) => {
+    try {
+      await deleteFriend({ variables: { friendId: id } });
+      alert('Friend Deleted.');
+      window.location.assign('/friends');
+    } catch (error) {
+      console.log("Error deleting friend:", error);
+    }
+  };
+
+  return (
+    <div className="container-profile">
+      <div className="friends-container">
+        {friends.map((friend) => (
+          <div key={friend._id} className="friend-box">
+            <img src={friend.profile.images[0]} alt={friend.username} />
+            <h3>{friend.username}</h3>
+            <p>{friend.profile.bio}</p>
+            <p>{friend.profile.education}</p>
+            <button
+              onClick={() => handleDeleteFriend(friend._id)}
+              className="remove-friend-button"
+            >
+              Remove Friend
+            </button>
+          </div>
         ))}
-      </ul>
-      </ul>
-    </div>
-    <div className="friend-actions">
-    {/* <input
-        type="text"
-        placeholder="Your User ID"
-        value={userId}
-        onChange={(e) => setUserId(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Friend User ID"
-        value={friendId}
-        onChange={(e) => setFriendId(e.target.value)}
-      /> */}
-         <Link to='/potential-friends' >
-        <button className="add-friend" >Add Friend</button>
+      </div>
+      <div className="friend-actions">
+        <Link to='/potential-friends'>
+          <button className="add-friend-button">Add Friend</button>
         </Link>
       </div>
     </div>
-    )
-}
-export default Friends
+  );
+};
 
-
-
-
-
+export default Friends;

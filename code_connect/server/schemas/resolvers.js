@@ -1,6 +1,5 @@
 const { User } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
-
 const resolvers = {
   Query: {
     users: async (parents, args, context) => {
@@ -8,10 +7,9 @@ const resolvers = {
         return User.find({ _id: {$ne: context.user._id}}).populate("friends")
       }
       throw new AuthenticationError('User not authenticated');
-
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username }).populate("friends")
+    user: async (parent, { _id }) => {
+      return User.findOne({ _id }).populate("friends")
     },
     me: async (parent, args, context) => {
       //   if (context.user) {
@@ -23,7 +21,6 @@ const resolvers = {
       if (context.user) {
         // Destructure limit from arguments
         const { limit } = args;
-
         // Find the user by ID and populate the friends field
         const user = await User.findOne({ _id: context.user._id })
           .populate({
@@ -34,18 +31,14 @@ const resolvers = {
             },
           })
           .exec(); // Ensure query execution
-
         if (!user) {
           throw new AuthenticationError('User not found');
         }
-
         return user;
       }
       throw new AuthenticationError('User not authenticated');
-
     },
   },
-
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
@@ -54,25 +47,19 @@ const resolvers = {
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-
       if (!user) {
         throw AuthenticationError;
       }
-
       const correctPw = await user.isCorrectPassword(password);
-
       if (!correctPw) {
         throw AuthenticationError;
       }
-
       const token = signToken(user);
-
       return { token, user };
     },
     addFriend: async (parent, { friendId }, context) => {
       console.log(friendId)
       if (context.user) {
-   
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
@@ -84,7 +71,7 @@ const resolvers = {
             new: true,
             runValidators: true,
           }
-        ).populate('friends')
+        )
       }
       throw AuthenticationError;
     },
@@ -98,12 +85,10 @@ const resolvers = {
             },
           },
           { new: true }
-        ).populate('friends');
+        )
       }
       throw AuthenticationError;
     },
-
-
     updateBio: async (parent ,{bioinfo}, context) =>{
       if (context.user) {
         return User.findOneAndUpdate(
@@ -111,7 +96,6 @@ const resolvers = {
           {
               profile: {bio: bioinfo}
             },
-    
           { new: true }
         ).populate('friends');
       }
@@ -119,5 +103,4 @@ const resolvers = {
     }
   },
 };
-
 module.exports = resolvers;

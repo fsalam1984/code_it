@@ -15,15 +15,14 @@ const Profile = () => {
   return (
     <div className="container-profile">
       <div className="profile-header">
-        <img src="profile-photo.jpg" alt="Profile" className="profile-photo" />
+      <div className="profile-info">
+      <img  src={profile.profile.images} alt="Profile Photo" className="profile-photo" />
+       </div>
         <div className="profile-name">{profile.username}</div>
-        <Link to="/manageprofile">
-          <button className="edit-profile-button">Edit Profile</button>
-        </Link>
       </div>
 
       <div className="profile-content">
-        <div className="friends-list">
+        {/* <div className="friends-list">
           <h3>Friends List</h3>
           <ul>
             {profile.friends?.length > 0 ? (
@@ -40,7 +39,10 @@ const Profile = () => {
           <Link to="/friends">
             <button className="view-friends-button">View Friends</button>
           </Link>
-        </div>
+        </div> */}
+
+ 
+        
 
         <div className="profile-info-grid">
           <div className="profile-info-card">Bio: {profile.profile?.bio}</div>
@@ -50,7 +52,13 @@ const Profile = () => {
           <div className="profile-info-card">Niche: {profile.profile?.niche}</div>
           <div className="profile-info-card">Unique Characteristic: {profile.profile?.unique_characteristic}</div>
         </div>
+
       </div>
+
+      <Link to="/friends">
+            <button className="view-friends-button">View Friends</button>
+          </Link>
+
     </div>
   );
 };
