@@ -40,9 +40,12 @@ body {
 
 .profile-photo {
    
-    height: 150px;
+    position: relative;
+    height: 180px;
     border-radius: 50%;
     background-color: #f5e6c5;
+    left: -40px;
+    width: 240px;
 }
 
 .profile-name {
