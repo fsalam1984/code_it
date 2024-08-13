@@ -5,6 +5,7 @@ const resolvers = {
   Query: {
     users: async (parents, args, context) => {
       if(context.user){
+        //Get only the users that are not logged in
         return User.find({ _id: {$ne: context.user._id}}).populate("friends")
       }
       throw new AuthenticationError('User not authenticated');
