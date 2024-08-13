@@ -1,63 +1,58 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../css/Profile.css';
-// import '../index.html'
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
+
 const Profile = () => {
-  const { loading, error, data } = useQuery(QUERY_ME)
-  const profile = data?.me || {}
+  const { loading, error, data } = useQuery(QUERY_ME);
+  const profile = data?.me || {};
+
   if (loading) {
-    return (
-      <>
-        <>Still loading</>
-      </>
-    )
+    return <div>Still loading...</div>;
   }
+
   return (
-    <div>
-      <h3>Welcome {profile.username}!</h3>
-      <div className="profile-container">
-        {/* Cover Photo */}
-        <div className="cover-photo">
-          <img alt="Cover Photo" />
-        </div>
-        {/* Profile Photo and Information */}
-        <div className="profile-info">
-          <img  src={profile.profile.images} alt="Profile Photo" className="profile-photo" />
-          {/* <Link to="/manageprofile">
-            <button className="manage-profile">Manage Profile</button>
-          </Link> */}
-          <h1>{profile.username}</h1>
-          <p>{profile.profile.bio}</p>
-          <p>{profile.profile.companies}</p>
-          <p>{profile.profile.job_title}</p>
-          <p>{profile.profile.education}</p>
-          <p>{profile.profile.niche}</p>
-          <p>{profile.profile.unique_characteristic}</p>
-        </div>
-      </div>
-      {/* Friends List */}
-      <div className="friends-list">
-        <h2>Friends</h2>
-        <ul>
-          {profile.friends.map(friend => (
-            <li key={friend._id}>
-              <img src={friend.profile.images[0]} alt={friend.name} />
-              <span>{friend.username}</span>
-              {/* <button onClick={() => deleteFriend(friend._id)}>Delete</button> */}
-            </li>
-          ))}
-        </ul>
-      </div>
-      {/* Friend Actions */}
-      <div className="friend-actions">
-        {/* <button className="view-friends" onClick={viewFriends}>View Friends</button> */}
-        <Link to="/friends">
-          <button className="add-friend">View Friends</button>
+    <div className="container-profile">
+      <div className="profile-header">
+        <img src="profile-photo.jpg" alt="Profile" className="profile-photo" />
+        <div className="profile-name">{profile.username}</div>
+        <Link to="/manageprofile">
+          <button className="edit-profile-button">Edit Profile</button>
         </Link>
+      </div>
+
+      <div className="profile-content">
+        <div className="friends-list">
+          <h3>Friends List</h3>
+          <ul>
+            {profile.friends?.length > 0 ? (
+              profile.friends.map(friend => (
+                <li key={friend._id}>
+                  <img src={friend.profile?.images[0] || "/Images/friend1.jpg"} alt={friend.name} />
+                  <span>{friend.username}</span>
+                </li>
+              ))
+            ) : (
+              <div>No friends available.</div>
+            )}
+          </ul>
+          <Link to="/friends">
+            <button className="view-friends-button">View Friends</button>
+          </Link>
+        </div>
+
+        <div className="profile-info-grid">
+          <div className="profile-info-card">Bio: {profile.profile?.bio}</div>
+          <div className="profile-info-card">Companies: {profile.profile?.companies}</div>
+          <div className="profile-info-card">Job Title: {profile.profile?.job_title}</div>
+          <div className="profile-info-card">Education: {profile.profile?.education}</div>
+          <div className="profile-info-card">Niche: {profile.profile?.niche}</div>
+          <div className="profile-info-card">Unique Characteristic: {profile.profile?.unique_characteristic}</div>
+        </div>
       </div>
     </div>
   );
 };
+
 export default Profile;

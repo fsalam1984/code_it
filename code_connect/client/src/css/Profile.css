@@ -105,6 +105,15 @@ body {
     margin-top: 20px;
 }
 
+.friends-list img {
+    width: 60px; /* Adjust the width as needed */
+    height: 60px; /* Adjust the height as needed */
+    border-radius: 50%; /* Make the images circular */
+    object-fit: cover; /* Ensure the image covers the space */
+    margin: 5px 0; /* Add some space between the images */
+}
+
+
 .line-separator {
     width: 100%;
     max-width: 1200px;
