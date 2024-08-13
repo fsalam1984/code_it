@@ -15,9 +15,10 @@ const Profile = () => {
   return (
     <div className="container-profile">
       <div className="profile-header">
-      <div className="profile-info">
-      <img  src={profile.profile.images} alt="Profile Photo" className="profile-photo" />
-       </div>
+        <div className="profile-info">
+          <img src={profile.profile.images} alt="Profile Photo" className="profile-photo" />
+          <h3>Welcome {profile.username}!</h3>
+        </div>
         <div className="profile-name">{profile.username}</div>
       </div>
 
@@ -33,8 +34,8 @@ const Profile = () => {
       </div>
 
       <Link to="/friends">
-            <button className="view-friends-button">View Friends</button>
-          </Link>
+        <button className="view-friends-button">View Friends</button>
+      </Link>
 
     </div>
   );
