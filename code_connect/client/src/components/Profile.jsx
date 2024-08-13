@@ -3,6 +3,8 @@ import '../css/Profile.css';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
+import Footer from './Footer'; // Import the Footer component
+
 
 const Profile = () => {
   const { loading, error, data } = useQuery(QUERY_ME);
@@ -36,7 +38,8 @@ const Profile = () => {
       <Link to="/friends">
         <button className="view-friends-button">View Friends</button>
       </Link>
-
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
