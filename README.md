@@ -39,6 +39,7 @@ Explore Potential Friends: Find new connections and send friend requests.
 
 ## Deployment
 The project is deployed on Render.
+# https://code-it-webservice.onrender.com
 
 ## Contributing
 Fork the repository.
@@ -49,3 +50,7 @@ Open a pull request.
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Authors
+# Faisal Salam, Aiyana Scarborough, Chandler Daniel
+
