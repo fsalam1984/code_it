@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 .container-fluid {
     padding-top: 120px;
@@ -14,36 +15,85 @@
     top: 50%;
     transform: translateY(-45%);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+=======
+/* Login Styles */
+
+.form-container {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background for modern look */
+>>>>>>> 478fa9b012896285f1d4343a3d9b6dee009d7c14
 }
 
-input[type="text"], input[type="password"] {
-    width: 100%;
-    padding: 10px;
+.form-container h2 {
     margin-bottom: 20px;
-    border: none;
-    border-radius: 20px;
-    background-color: #f5e6c5;
-    font-size: 1rem;
+    font-size: 1.8rem; /* Larger font size for better readability */
+    color: #333; /* Darker text color for contrast */
 }
 
-button {
-    background-color: #f7934c;
-    border-radius: 20px;
-    padding: 10px 20px;
-    color: white;
-    border: none;
-    font-weight: bold;
+.form-container form {
+    background-color: white;
+    border-radius: 12px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    padding: 25px;
     width: 100%;
-    cursor: pointer;
+    max-width: 360px; /* Increased width for better readability */
+    text-align: center; /* Centered text alignment */
 }
 
-p {
-    margin-top: 20px;
-    font-size: 0.9rem;
+.form-container .form-group {
+    margin-bottom: 20px; /* Increased margin for better spacing */
 }
 
-a {
-    color: #1f1300;
-    text-decoration: underline;
+.form-container input {
+    width: 100%;
+    padding: 12px; /* Increased padding for better usability */
+    box-sizing: border-box;
+    border: 1px solid #ddd; /* Light border for input fields */
+    border-radius: 6px; /* Rounded corners for input fields */
+    margin-top: 5px;
+    font-size: 16px; /* Larger font size for better readability */
+    outline: none; /* Remove default outline */
+}
+
+.form-container input:focus {
+    border-color: #007bff; /* Highlight border color on focus */
+}
+
+.form-container button {
+    background-color: #28a745; /* Updated to a more visually appealing green */
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 6px; /* Rounded corners for the button */
     cursor: pointer;
+    font-weight: 600; /* Bolder font weight for the button text */
+    font-size: 16px; /* Larger font size for better readability */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.form-container button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.form-container p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666; /* Lighter text color for better contrast */
+}
+
+.form-container a {
+    color: #007bff; /* Blue color for links */
+    text-decoration: none;
+}
+
+.form-container a:hover {
+    text-decoration: underline; /* Underline link on hover */
 }

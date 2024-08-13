@@ -1,45 +1,47 @@
+/* Navbar.css */
+
 * {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    padding: 3px;
+
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 45px;
-    background-color: #1F1300;
-    color: #fff;
-    border-bottom: 1px solid rgb(148, 148, 181);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+
+display: flex;
+justify-content: space-between;
+padding: 12px;
+background-color: rgb(57, 57, 170);
+color: #fff;
+padding-inline: 45px;
+border-bottom: 1px solid rgb(148, 148, 181);
+
+
 }
 
 .navbar-brand {
     font-size: 1.8rem;
+    margin-right: 20px;
     text-decoration: none;
-    color: #ffc15e;
-}
+    color: white;
 
-.navbar-left {
+}
+.navbar-left{
+
     display: flex;
     align-items: center;
 }
 
-.navbar-right {
+.navbar-right{
     display: flex;
     align-items: center;
     margin-left: 20px;
     
 }
 
-.navbar-link {
-    color: #ffc15e;
-    margin-left: 20px;
-}
-
-.navbar-link:hover {
+.navbar-link:hover{
     text-decoration: underline;
+}
+.navbar-link{
+    color: white
 }
