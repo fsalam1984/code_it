@@ -21,7 +21,7 @@ const Footer = () => {
                 </div>
                 {/* Copyright Info */}
                 <div className="copyright">
-                    <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+                    <p>&copy; 2024 Code-connect App. All rights reserved.</p>
                 </div>
             </div>
         </footer>
