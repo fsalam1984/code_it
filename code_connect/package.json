@@ -5,7 +5,7 @@
     "type": "commonjs",
     "scripts": {
         "start": "node server/server.js",
-        "install": "cd server && npm install && cd ../client && npm install",
+        "install": "cd server && npm install && npm run seed && cd ../client && npm install",
         "build": "cd client && npm run build"
     },
     "keywords": [],
